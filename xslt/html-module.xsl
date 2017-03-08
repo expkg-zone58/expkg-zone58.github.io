@@ -546,10 +546,10 @@
 
 	<xsl:template name="toc">
 		<nav id="toc">
-			<h2>
+			<div>
 				<a href="..">(up)</a> 
 				<xsl:value-of select="$docuri" />
-			</h2>
+			</div>
 			<h2>
 				<a id="contents"></a>
 				Table of Contents
