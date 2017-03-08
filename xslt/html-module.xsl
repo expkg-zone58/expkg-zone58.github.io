@@ -547,7 +547,7 @@
 	<xsl:template name="toc">
 		<nav id="toc">
 			<div>
-				<a href="..">(up)</a> 
+				<a href="..">&#8624;</a> 
 				<xsl:value-of select="$docuri" />
 			</div>
 			<h2>
