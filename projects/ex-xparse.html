@@ -299,7 +299,10 @@
             			module
             		
          </h1>http://expath.org/ns/xparsexparse.xqm
-         <p>xparse module</p>
+         <p>This module is designed to specify a small library of functions for parsing expressions
+            in XPath ([XPath3.0]) or XQuery ([XQuery3.0]) into XML trees, and in the reverse direction
+            serialising these trees into equivalent string expressions.
+         </p>
          		See also:
          		https://lists.w3.org/Archives/Public/public-expath/2015Feb/att-0003/xparse.html, uses, basex, inspect:functions
          <div id="variables">
@@ -313,7 +316,7 @@
           <pre>
 				as
 				element(xp:parser)*</pre>
-          <p>available parsers</p>
+          <p>The available parsers</p>
             </div>
             <div id="$xp:default-opts">
                <h4>
@@ -322,7 +325,8 @@
           <pre>
 				as
 				map(*)</pre>
-        </div>
+          <p>default options for parse function.</p>
+            </div>
          </div>
          <div id="functions">
             <h3>
@@ -333,7 +337,7 @@
             <a href="#xp:parse#1">xp:parse#1</a>
           </h4>
                <div class="proto">declare function xp:parse($exp as xs:string) as element()</div>
-               <p></p>
+               <p>The xp:parse function returns a parse tree for an expression.</p>
                <h5>Params</h5>
                <ul>
                   <li>exp
@@ -351,16 +355,16 @@
             <a href="#xp:parse#2">xp:parse#2</a>
           </h4>
                <div class="proto">declare function xp:parse($exp as xs:string, $options as map(*)) as element()</div>
-               <p></p>
+               <p>The xp:parse function returns a parse tree for an expression.</p>
                <h5>Params</h5>
                <ul>
                   <li>exp
                      			as
-                     			xs:string
+                     			xs:string sttring to parse
                   </li>
                   <li>options
                      			as
-                     			map(*)
+                     			map(*) is a map of control options
                   </li>
                </ul>
                <h5>Returns</h5>
@@ -373,6 +377,9 @@
             <a href="#xp:to-expression#1">xp:to-expression#1</a>
           </h4>
                <div class="proto">declare function xp:to-expression($in as element()) as xs:string</div>
+               <p>The xp:to-expression function returns an expression tree corresponding to a given
+                  parse tree.
+               </p>
                <h5>Params</h5>
                <ul>
                   <li>in
@@ -390,6 +397,9 @@
             <a href="#xp:to-expression#2">xp:to-expression#2</a>
           </h4>
                <div class="proto">declare function xp:to-expression($in as element(), $options as map(*)) as xs:string</div>
+               <p>The xp:to-expression function returns an expression tree corresponding to a given
+                  parse tree.
+               </p>
                <h5>Params</h5>
                <ul>
                   <li>in
@@ -446,7 +456,7 @@
                <h4>
             <a href="#xp:java-fixup#1">xp:java-fixup#1</a>
           </h4>
-               <div class="proto">declare function xp:java-fixup($name as xs:string) as xs:string</div>
+               <div class="proto">declare %private function xp:java-fixup($name as xs:string) as xs:string</div>
                <h5>Params</h5>
                <ul>
                   <li>name
@@ -464,7 +474,7 @@
             <a href="#xp:get-parser#1">xp:get-parser#1</a>
           </h4>
                <div class="proto">declare function xp:get-parser($opts as map(*)) as function(*)</div>
-               <p></p>
+               <p>Select parser function for opts</p>
                <h5>Params</h5>
                <ul>
                   <li>opts
