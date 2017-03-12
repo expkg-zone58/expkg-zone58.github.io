@@ -23,283 +23,13 @@
 					- xqDoc
 				</title>
 				<style type="text/css">
-					body {
-					font-family: Helvetica;
-					padding: 0.5em 1em;
-					}
-					pre {
-					font-family: Inconsolata, Consolas, monospace;
-					}
-					ol.results {
-					padding-left: 0;
-					}
-					.footer {
-					text-align:right;
-					border-top: solid 4px;
-					padding: 0.25em 0.5em;
-					font-size: 85%;
-					color: #999;
-					}
-					li.result {
-					list-style-position: inside;
-					list-style: none;
-					height:140px;
-					}
-					h2 {
-					display: inline-block;
-					margin: 0;
-					}
-
-					h2 a,
-					.result h3 a {
-					text-decoration: inherit;
-					color: inherit;
-					}
-					h3{
-					font-size: 140%;
-					background-color: #aaa;
-					border-bottom: 1px solid #000;
-					width: 100%;
-					}
-					h4{
-					font-size: 100%;
-					background-color: #ddd;
-					width: 90%;
-					}
-
-					.namespace {
-					color: #999;
-					}
-					.namespace:before {
-					content: "{";
-					}
-					.namespace:after {
-					content: "}";
-					}
-					table{
-					width:75%;
-					float:right;
-					}
-					td {
-					height:100px;
-					width:50%;
-					vertical-align:text-top;
-					}
+					<xsl:value-of select="unparsed-text('../resources/page.css','UTF-8')" />
 				</style>
+
 				<style type="text/css">
-					/* from xsl:query.xsl (D) from
-					https://www.w3.org/TR/xpath-functions-31*/
-					div.exampleInner pre {
-					margin-left: 1em;
-					margin-top: 0em; margin-bottom: 0em}
-
-					pre.small {
-					font-size: small }
-					div.exampleOuter {border: 4px double gray;
-					margin: 0em; padding: 0em}
-					div.exampleInner { background-color:
-					#d5dee3;
-					padding: 4px; margin: 0em }
-
-					div.exampleInner table { border:
-					0;
-					border-spacing: 0;
-					}
-
-					div.exampleInner td { vertical-align:
-					baseline;
-					padding: 0;
-					}
-
-					div.exampleWrapper { margin: 4px }
-					div.exampleHeader { font-weight: bold;
-					margin: 4px}
-
-					div.proto {
-					border: 0;
-					border-spacing: 0;
-					}
-
-					div.issue { border-bottom-color:
-					black;
-					border-bottom-style: solid;
-					border-bottom-width: 1pt;
-					margin-bottom: 20pt;
-					}
-
-					th.issue-toc-head { border-bottom-color:
-					black;
-					border-bottom-style: solid;
-					border-bottom-width: 1pt;
-					}
-
-
-					div.schemaComp { border: 4px double gray;
-					margin: 0em 1em;
-					padding:
-					0em;
-					}
-					div.compHeader { margin: 4px;
-					font-weight: bold;
-					}
-					span.schemaComp { background-color: white;
-					color: #A52A2A;
-					}
-					div.compBody { border-top-width: 4px;
-					border-top-style: double;
-					border-top-color: #d3d3d3;
-					padding: 4px;
-					margin: 0em;
-					}
-
-					div.exampleInner { background-color: #d5dee3;
-					color: black;
-					border-top-width: 4px;
-					border-top-style: double;
-					border-top-color:
-					#d3d3d3;
-					border-bottom-width: 4px;
-					border-bottom-style: double;
-					border-bottom-color: #d3d3d3;
-					padding: 4px;
-					margin-bottom: 4px;
-					}
-
-					div.issueBody { margin-left: 0.25in;
-					}
-
-					code.function { font-weight:
-					bold;
-					}
-					code.return-type { font-style: italic;
-					}
-					code.return-varies {
-					font-weight: bold;
-					font-style: italic;
-					}
-					code.type { font-style:
-					italic;
-					}
-					code.as { font-style: normal;
-					}
-					code.arg {
-					}
-					code.strikeout {
-					text-decoration: line-through;
-					}
-					code.small { font-size: small;
-					}
-					p.table.footnote { font-size: 8pt;
-					}
-
-					table.casting { font-size:
-					x-small;
-					}
-					table.hierarchy { font-size: x-small;
-					}
-					table.proto {
-
-					}
-
-					td.castY { background-color: #7FFF7F;
-					color: black;
-					text-align:
-					center;
-					vertical-align: middle;
-					}
-
-					td.castN { background-color:
-					#FF7F7F;
-					color: black;
-					text-align: center;
-					vertical-align: middle;
-					}
-
-					td.castM { background-color: white;
-					color: black;
-					text-align: center;
-					vertical-align: middle;
-					}
-
-					td.castOther { background-color: yellow;
-					color: black;
-					text-align: center;
-					vertical-align: middle;
-					}
-
-					span.cancast:hover { background-color: #ffa;
-					color: black;
-					}
-
-					div.protoref { margin-left: 0.5in;
-					text-indent: -0.5in;
-					}
-
-					dd.indent {
-					margin-left: 2em;
-					}
-
-					p.element-syntax { border: solid thin;
-					background-color: #ffccff
-					}
-
-					p.element-syntax-chg { border: solid
-					thick yellow; background-color: #ffccff
-					}
-
-					div.proto {
-					padding: .5em;
-					border: .5em;
-					border-left-style: solid;
-					page-break-inside: avoid;
-					margin: 1em auto;
-					border-color: #ff99ff;
-					background: #ffe6ff;
-					overflow: auto;
-					}
-
-
-					div.example-chg { border: solid thick yellow;
-					background-color: #40e0d0; padding:
-					1em
-					}
-
-					div.ffheader {
-					margin-top:
-					.8rem;
-					font-size: 140%;
-					font-variant: all-small-caps;
-					text-transform:
-					lowercase;
-					font-weight: bold;
-					color: hsla(203, 20%, 40%, .7);
-					}
-
-					span.verb { font: small-caps 100% sans-serif
-					}
-
-					span.error {
-					font-size: small
-					}
-
-					span.definition { font: small-caps 100% sans-serif
-					}
-
-					span.grayed { color: gray
-					}
-
-					table.scrap td {
-					vertical-align:
-					baseline;
-					text-align: left;
-					padding-left: 30px;
-					}
-
-					table.data
-					table.index {
-					border-bottom:2px !important ;
-					}
+					<xsl:value-of select="unparsed-text('../resources/query.css','UTF-8')" />
 				</style>
+
 				<script src="lib/prettify.js" type="text/javascript">&#160;</script>
 				<script src="lib/lang-xq.js" type="text/javascript">&#160;</script>
 				<link rel="stylesheet" type="text/css" href="{$css}" />
@@ -307,8 +37,11 @@
 			</head>
 			<body class="home" id="top">
 				<div id="main">
-					<xsl:apply-templates />
+					<xsl:apply-templates select="doc:module" />
+					<xsl:apply-templates select="doc:variables" />
+					<xsl:apply-templates select="doc:functions" />
 
+					<xsl:apply-templates select="doc:namespaces" />
 					<div>
 						<h3>Original Source Code</h3>
 						<pre class="prettyprint lang-xq">
@@ -323,7 +56,8 @@
 								<xsl:value-of select="()" />
 							</i>
 							|
-							generated by ?
+							generated at
+							<xsl:value-of select="current-dateTime()" />
 						</p>
 					</div>
 				</div>
@@ -344,10 +78,46 @@
 			<xsl:value-of select="@type" />
 			module
 		</h1>
-		<xsl:apply-templates select="*[not(name(.) eq 'doc:uri')]" />
+		<dl>
+			<xsl:apply-templates select="doc:comment/doc:description" />
+			<dt>Rest</dt>
+			<dd>
+				<xsl:apply-templates select="*[not(name(.) eq 'doc:uri')]" />
+			</dd>
+		</dl>
 	</xsl:template>
 
-	<xsl:template match="doc:variables">
+	<xsl:template match="doc:namespaces[doc:namespace]">
+		<div id="namespaces">
+			<h3>
+				<a href="#namespaces">Namespaces</a>
+			</h3>
+			<p>The following namespace are defined:</p>
+			<table style="float:none">
+				<thead>
+					<tr>
+						<th>Prefix</th>
+						<th>Uri</th>
+					</tr>
+				</thead>
+				<tbody>
+					<xsl:for-each select="doc:namespace">
+					    <xsl:sort select="@prefix"/>
+						<tr>
+							<td>
+								<xsl:value-of select="string(@prefix)" />
+							</td>
+							<td>
+								<xsl:value-of select="string(@uri)" />
+							</td>
+						</tr>
+					</xsl:for-each>
+				</tbody>
+			</table>
+		</div>
+	</xsl:template>
+
+	<xsl:template match="doc:variables[doc:variable]">
 		<div id="variables">
 			<h3>
 				<a href="#variables">Variables</a>
@@ -366,12 +136,15 @@
 					<xsl:value-of select="$id" />
 				</a>
 			</h4>
-			<pre>
-				as
-				<xsl:value-of select="doc:type" />
-				<xsl:value-of select="doc:type/@occurrence" />
-			</pre>
-			<xsl:apply-templates select="doc:comment" />
+			<dl>
+				<xsl:apply-templates select="doc:comment/doc:description" />
+				<dt class="label">Type</dt>
+				<dd>
+					<xsl:value-of select="doc:type" />
+					<xsl:value-of select="doc:type/@occurrence" />
+				</dd>
+			</dl>
+
 		</div>
 	</xsl:template>
 
@@ -379,12 +152,12 @@
 		<xsl:value-of select="." />
 	</xsl:template>
 
-	<xsl:template match="doc:functions">
+	<xsl:template match="doc:functions[doc:function]">
 		<div id="functions">
 			<h3>
 				<a href="#functions">Functions</a>
 			</h3>
-			<xsl:apply-templates />
+			<xsl:apply-templates select="doc:function" />
 		</div>
 	</xsl:template>
 
@@ -398,19 +171,32 @@
 					<xsl:value-of select="$id" />
 				</a>
 			</h4>
-			<div class="proto">
-				<xsl:value-of select="doc:signature" />
-			</div>
-			<xsl:apply-templates select="* except (doc:name|doc:signature)" />
-			<xsl:apply-templates select="doc:comment/doc:error" />
+			<dl>
+
+				<xsl:apply-templates select="doc:comment/doc:description" />
+
+				<dt class="label">Signature</dt>
+				<dd>
+					<div class="proto">
+						<xsl:value-of select="doc:signature" />
+					</div>
+				</dd>
+
+				<xsl:apply-templates select="doc:parameters" />
+				<xsl:apply-templates select="doc:return" />
+				<xsl:apply-templates select="doc:comment/doc:error" />
+			</dl>
+
 		</div>
 	</xsl:template>
 
 	<xsl:template match="doc:parameters">
-		<h5>Params</h5>
-		<ul>
-			<xsl:apply-templates />
-		</ul>
+		<dt class="label">Parameters</dt>
+		<dd>
+			<ul>
+				<xsl:apply-templates select="doc:parameter" />
+			</ul>
+		</dd>
 	</xsl:template>
 
 	<xsl:template match="doc:parameter">
@@ -428,38 +214,41 @@
 	</xsl:template>
 
 	<xsl:template match="doc:return">
-		<h5>Returns</h5>
-		<ul>
-			<li>
-				<xsl:value-of select="doc:type" />
-				<xsl:value-of select="doc:type/@occurrence" />
-				<xsl:for-each select="../doc:comment/doc:return">
-					<xsl:text>: </xsl:text>
-					<xsl:value-of select="normalize-space(.)" />
-				</xsl:for-each>
-			</li>
-		</ul>
+		<dt class="label">Return</dt>
+		<dd>
+			<ul>
+				<li>
+					<xsl:value-of select="doc:type" />
+					<xsl:value-of select="doc:type/@occurrence" />
+					<xsl:for-each select="../doc:comment/doc:return">
+						<xsl:text>: </xsl:text>
+						<xsl:value-of select="normalize-space(.)" />
+					</xsl:for-each>
+				</li>
+			</ul>
+		</dd>
 	</xsl:template>
 
-	<xsl:template match="doc:error" mode="custom" />
+
 
 	<xsl:template match="doc:error">
-		<h5>Errors</h5>
-		<p>
-			<xsl:apply-templates mode="custom" />
-		</p>
+		<dt class="label">Error</dt>
+		<dd>
+			<xsl:value-of select="normalize-space(.)" />
+		</dd>
 	</xsl:template>
 
 	<xsl:template match="doc:comment">
 		<xsl:apply-templates mode="custom" />
 	</xsl:template>
 
-	<xsl:template match="doc:description" mode="custom">
-		<p>
-			<xsl:apply-templates mode="custom" />
-		</p>
+	<xsl:template match="doc:description">
+		<dt class="label">Summary</dt>
+		<dd>
+			<xsl:copy-of select="node()|text()" />
+		</dd>
 	</xsl:template>
-
+	<!--handle html in comments -->
 	<xsl:template match="*:h1" mode="custom">
 		<h1>
 			<xsl:apply-templates mode="custom" />
@@ -547,7 +336,7 @@
 	<xsl:template name="toc">
 		<nav id="toc">
 			<div>
-				<a href="..">&#8624;</a> 
+				<a href="..">&#8624;</a>
 				<xsl:value-of select="$docuri" />
 			</div>
 			<h2>
@@ -617,6 +406,12 @@
 					</ol>
 
 				</li>
+				<li>
+                    <a href="#namespaces">
+                        <span class="secno">4 </span>
+                        <span class="content">Namespaces</span>
+                    </a>
+                </li>
 			</ol>
 		</nav>
 	</xsl:template>

@@ -7,284 +7,283 @@
          					- xqDoc
          				
       </title>
-    <style type="text/css">
-					body {
-					font-family: Helvetica;
-					padding: 0.5em 1em;
-					}
-					pre {
-					font-family: Inconsolata, Consolas, monospace;
-					}
-					ol.results {
-					padding-left: 0;
-					}
-					.footer {
-					text-align:right;
-					border-top: solid 4px;
-					padding: 0.25em 0.5em;
-					font-size: 85%;
-					color: #999;
-					}
-					li.result {
-					list-style-position: inside;
-					list-style: none;
-					height:140px;
-					}
-					h2 {
-					display: inline-block;
-					margin: 0;
-					}
+    <style type="text/css">body {
+	font-family: Helvetica;
+	padding: 0.5em 1em;
+}
 
-					h2 a,
-					.result h3 a {
-					text-decoration: inherit;
-					color: inherit;
-					}
-					h3{
-					font-size: 140%;
-					background-color: #aaa;
-					border-bottom: 1px solid #000;
-					width: 100%;
-					}
-					h4{
-					font-size: 100%;
-					background-color: #ddd;
-					width: 90%;
-					}
+pre {
+	font-family: Inconsolata, Consolas, monospace;
+}
 
-					.namespace {
-					color: #999;
-					}
-					.namespace:before {
-					content: "{";
-					}
-					.namespace:after {
-					content: "}";
-					}
-					table{
-					width:75%;
-					float:right;
-					}
-					td {
-					height:100px;
-					width:50%;
-					vertical-align:text-top;
-					}
-				</style>
-    <style type="text/css">
-					/* from xsl:query.xsl (D) from
-					https://www.w3.org/TR/xpath-functions-31*/
-					div.exampleInner pre {
-					margin-left: 1em;
-					margin-top: 0em; margin-bottom: 0em}
+ol.results {
+	padding-left: 0;
+}
 
-					pre.small {
-					font-size: small }
-					div.exampleOuter {border: 4px double gray;
-					margin: 0em; padding: 0em}
-					div.exampleInner { background-color:
-					#d5dee3;
-					padding: 4px; margin: 0em }
+.footer {
+	text-align: right;
+	border-top: solid 4px;
+	padding: 0.25em 0.5em;
+	font-size: 85%;
+	color: #999;
+}
 
-					div.exampleInner table { border:
-					0;
-					border-spacing: 0;
-					}
+li.result {
+	list-style-position: inside;
+	list-style: none;
+	height: 140px;
+}
 
-					div.exampleInner td { vertical-align:
-					baseline;
-					padding: 0;
-					}
+h2 {
+	display: inline-block;
+	margin: 0;
+}
 
-					div.exampleWrapper { margin: 4px }
-					div.exampleHeader { font-weight: bold;
-					margin: 4px}
+h2 a, .result h3 a {
+	text-decoration: inherit;
+	color: inherit;
+}
 
-					div.proto {
-					border: 0;
-					border-spacing: 0;
-					}
+h3 {
+	font-size: 140%;
+	background-color: #aaa;
+	border-bottom: 1px solid #000;
+	width: 100%;
+}
 
-					div.issue { border-bottom-color:
-					black;
-					border-bottom-style: solid;
-					border-bottom-width: 1pt;
-					margin-bottom: 20pt;
-					}
+h4 {
+	font-size: 100%;
+	background-color: #ddd;
+	width: 90%;
+}
 
-					th.issue-toc-head { border-bottom-color:
-					black;
-					border-bottom-style: solid;
-					border-bottom-width: 1pt;
-					}
+.namespace {
+	color: #999;
+}
 
+.namespace:before {
+	content: "{";
+}
 
-					div.schemaComp { border: 4px double gray;
-					margin: 0em 1em;
-					padding:
-					0em;
-					}
-					div.compHeader { margin: 4px;
-					font-weight: bold;
-					}
-					span.schemaComp { background-color: white;
-					color: #A52A2A;
-					}
-					div.compBody { border-top-width: 4px;
-					border-top-style: double;
-					border-top-color: #d3d3d3;
-					padding: 4px;
-					margin: 0em;
-					}
+.namespace:after {
+	content: "}";
+}
 
-					div.exampleInner { background-color: #d5dee3;
-					color: black;
-					border-top-width: 4px;
-					border-top-style: double;
-					border-top-color:
-					#d3d3d3;
-					border-bottom-width: 4px;
-					border-bottom-style: double;
-					border-bottom-color: #d3d3d3;
-					padding: 4px;
-					margin-bottom: 4px;
-					}
+td {
+	vertical-align: text-top;
+}</style>
+    <style type="text/css">/* from xsl:query.xsl (D) from
+                    https://www.w3.org/TR/xpath-functions-31*/
+                    div.exampleInner pre {
+                    margin-left: 1em;
+                    margin-top: 0em; margin-bottom: 0em}
 
-					div.issueBody { margin-left: 0.25in;
-					}
+                    pre.small {
+                    font-size: small }
+                    div.exampleOuter {border: 4px double gray;
+                    margin: 0em; padding: 0em}
+                    div.exampleInner { background-color:
+                    #d5dee3;
+                    padding: 4px; margin: 0em }
 
-					code.function { font-weight:
-					bold;
-					}
-					code.return-type { font-style: italic;
-					}
-					code.return-varies {
-					font-weight: bold;
-					font-style: italic;
-					}
-					code.type { font-style:
-					italic;
-					}
-					code.as { font-style: normal;
-					}
-					code.arg {
-					}
-					code.strikeout {
-					text-decoration: line-through;
-					}
-					code.small { font-size: small;
-					}
-					p.table.footnote { font-size: 8pt;
-					}
+                    div.exampleInner table { border:
+                    0;
+                    border-spacing: 0;
+                    }
 
-					table.casting { font-size:
-					x-small;
-					}
-					table.hierarchy { font-size: x-small;
-					}
-					table.proto {
+                    div.exampleInner td { vertical-align:
+                    baseline;
+                    padding: 0;
+                    }
 
-					}
+                    div.exampleWrapper { margin: 4px }
+                    div.exampleHeader { font-weight: bold;
+                    margin: 4px}
 
-					td.castY { background-color: #7FFF7F;
-					color: black;
-					text-align:
-					center;
-					vertical-align: middle;
-					}
+                    div.proto {
+                    border: 0;
+                    border-spacing: 0;
+                    }
 
-					td.castN { background-color:
-					#FF7F7F;
-					color: black;
-					text-align: center;
-					vertical-align: middle;
-					}
+                    div.issue { border-bottom-color:
+                    black;
+                    border-bottom-style: solid;
+                    border-bottom-width: 1pt;
+                    margin-bottom: 20pt;
+                    }
 
-					td.castM { background-color: white;
-					color: black;
-					text-align: center;
-					vertical-align: middle;
-					}
-
-					td.castOther { background-color: yellow;
-					color: black;
-					text-align: center;
-					vertical-align: middle;
-					}
-
-					span.cancast:hover { background-color: #ffa;
-					color: black;
-					}
-
-					div.protoref { margin-left: 0.5in;
-					text-indent: -0.5in;
-					}
-
-					dd.indent {
-					margin-left: 2em;
-					}
-
-					p.element-syntax { border: solid thin;
-					background-color: #ffccff
-					}
-
-					p.element-syntax-chg { border: solid
-					thick yellow; background-color: #ffccff
-					}
-
-					div.proto {
-					padding: .5em;
-					border: .5em;
-					border-left-style: solid;
-					page-break-inside: avoid;
-					margin: 1em auto;
-					border-color: #ff99ff;
-					background: #ffe6ff;
-					overflow: auto;
-					}
+                    th.issue-toc-head { border-bottom-color:
+                    black;
+                    border-bottom-style: solid;
+                    border-bottom-width: 1pt;
+                    }
 
 
-					div.example-chg { border: solid thick yellow;
-					background-color: #40e0d0; padding:
-					1em
-					}
+                    div.schemaComp { border: 4px double gray;
+                    margin: 0em 1em;
+                    padding:
+                    0em;
+                    }
+                    div.compHeader { margin: 4px;
+                    font-weight: bold;
+                    }
+                    span.schemaComp { background-color: white;
+                    color: #A52A2A;
+                    }
+                    div.compBody { border-top-width: 4px;
+                    border-top-style: double;
+                    border-top-color: #d3d3d3;
+                    padding: 4px;
+                    margin: 0em;
+                    }
 
-					div.ffheader {
-					margin-top:
-					.8rem;
-					font-size: 140%;
-					font-variant: all-small-caps;
-					text-transform:
-					lowercase;
-					font-weight: bold;
-					color: hsla(203, 20%, 40%, .7);
-					}
+                    div.exampleInner { background-color: #d5dee3;
+                    color: black;
+                    border-top-width: 4px;
+                    border-top-style: double;
+                    border-top-color:
+                    #d3d3d3;
+                    border-bottom-width: 4px;
+                    border-bottom-style: double;
+                    border-bottom-color: #d3d3d3;
+                    padding: 4px;
+                    margin-bottom: 4px;
+                    }
 
-					span.verb { font: small-caps 100% sans-serif
-					}
+                    div.issueBody { margin-left: 0.25in;
+                    }
 
-					span.error {
-					font-size: small
-					}
+                    code.function { font-weight:
+                    bold;
+                    }
+                    code.return-type { font-style: italic;
+                    }
+                    code.return-varies {
+                    font-weight: bold;
+                    font-style: italic;
+                    }
+                    code.type { font-style:
+                    italic;
+                    }
+                    code.as { font-style: normal;
+                    }
+                    code.arg {
+                    }
+                    code.strikeout {
+                    text-decoration: line-through;
+                    }
+                    code.small { font-size: small;
+                    }
+                    p.table.footnote { font-size: 8pt;
+                    }
 
-					span.definition { font: small-caps 100% sans-serif
-					}
+                    table.casting { font-size:
+                    x-small;
+                    }
+                    table.hierarchy { font-size: x-small;
+                    }
+                    table.proto {
 
-					span.grayed { color: gray
-					}
+                    }
 
-					table.scrap td {
-					vertical-align:
-					baseline;
-					text-align: left;
-					padding-left: 30px;
-					}
+                    td.castY { background-color: #7FFF7F;
+                    color: black;
+                    text-align:
+                    center;
+                    vertical-align: middle;
+                    }
 
-					table.data
-					table.index {
-					border-bottom:2px !important ;
-					}
-				</style>
+                    td.castN { background-color:
+                    #FF7F7F;
+                    color: black;
+                    text-align: center;
+                    vertical-align: middle;
+                    }
+
+                    td.castM { background-color: white;
+                    color: black;
+                    text-align: center;
+                    vertical-align: middle;
+                    }
+
+                    td.castOther { background-color: yellow;
+                    color: black;
+                    text-align: center;
+                    vertical-align: middle;
+                    }
+
+                    span.cancast:hover { background-color: #ffa;
+                    color: black;
+                    }
+
+                    div.protoref { margin-left: 0.5in;
+                    text-indent: -0.5in;
+                    }
+
+                    dd.indent {
+                    margin-left: 2em;
+                    }
+
+                    p.element-syntax { border: solid thin;
+                    background-color: #ffccff
+                    }
+
+                    p.element-syntax-chg { border: solid
+                    thick yellow; background-color: #ffccff
+                    }
+
+                    div.proto {
+                    padding: .5em;
+                    border: .5em;
+                    border-left-style: solid;
+                    page-break-inside: avoid;
+                    margin: 1em auto;
+                    border-color: #ff99ff;
+                    background: #ffe6ff;
+                    overflow: auto;
+                    }
+
+
+                    div.example-chg { border: solid thick yellow;
+                    background-color: #40e0d0; padding:
+                    1em
+                    }
+
+                    div.ffheader {
+                    margin-top:
+                    .8rem;
+                    font-size: 140%;
+                    font-variant: all-small-caps;
+                    text-transform:
+                    lowercase;
+                    font-weight: bold;
+                    color: hsla(203, 20%, 40%, .7);
+                    }
+
+                    span.verb { font: small-caps 100% sans-serif
+                    }
+
+                    span.error {
+                    font-size: small
+                    }
+
+                    span.definition { font: small-caps 100% sans-serif
+                    }
+
+                    span.grayed { color: gray
+                    }
+
+                    table.scrap td {
+                    vertical-align:
+                    baseline;
+                    text-align: left;
+                    padding-left: 30px;
+                    }
+
+                    table.data
+                    table.index {
+                    border-bottom:2px !important ;
+                    }</style>
     <script src="lib/prettify.js" type="text/javascript"> </script>
     <script src="lib/lang-xq.js" type="text/javascript"> </script>
     <link rel="stylesheet" type="text/css" href="../resources/base.css">
@@ -298,13 +297,22 @@
             			library
             			module
             		
-         </h1>http://expath.org/ns/xparsexparse.xqm
-         <p>This module is designed to specify a small library of functions for parsing expressions
-            in XPath ([XPath3.0]) or XQuery ([XQuery3.0]) into XML trees, and in the reverse direction
-            serialising these trees into equivalent string expressions.
-         </p>
-         		See also:
-         		https://lists.w3.org/Archives/Public/public-expath/2015Feb/att-0003/xparse.html, uses, basex, inspect:functions
+         </h1>
+         <dl>
+            <dt class="label">Summary</dt>
+            <dd>This module is designed to specify a small library of functions for parsing expressions
+               in XPath ([XPath3.0]) or 
+               XQuery ([XQuery3.0]) into XML trees, and in the reverse direction serialising these
+               trees into equivalent string expressions.
+            </dd>
+            <dt>Rest</dt>
+            <dd>http://expath.org/ns/xparsexparse.xqmThis module is designed to specify a small library of functions for parsing expressions
+               in XPath ([XPath3.0]) or XQuery ([XQuery3.0]) into XML trees, and in the reverse direction
+               serialising these trees into equivalent string expressions.
+               		See also:
+               		https://lists.w3.org/Archives/Public/public-expath/2015Feb/att-0003/xparse.html, uses, basex, inspect:functions
+            </dd>
+         </dl>
          <div id="variables">
             <h3>
           <a href="#variables">Variables</a>
@@ -313,19 +321,23 @@
                <h4>
             <a href="#$xp:parsers">$xp:parsers</a>
           </h4>
-          <pre>
-				as
-				element(xp:parser)*</pre>
-          <p>The available parsers</p>
+               <dl>
+                  <dt class="label">Summary</dt>
+                  <dd>The available parsers</dd>
+                  <dt class="label">Type</dt>
+                  <dd>element(xp:parser)*</dd>
+               </dl>
             </div>
             <div id="$xp:default-opts">
                <h4>
             <a href="#$xp:default-opts">$xp:default-opts</a>
           </h4>
-          <pre>
-				as
-				map(*)</pre>
-          <p>default options for parse function.</p>
+               <dl>
+                  <dt class="label">Summary</dt>
+                  <dd>default options for parse function.</dd>
+                  <dt class="label">Type</dt>
+                  <dd>map(*)</dd>
+               </dl>
             </div>
          </div>
          <div id="functions">
@@ -336,157 +348,260 @@
                <h4>
             <a href="#xp:parse#1">xp:parse#1</a>
           </h4>
-               <div class="proto">declare function xp:parse($exp as xs:string) as element()</div>
-               <p>The xp:parse function returns a parse tree for an expression.</p>
-               <h5>Params</h5>
-               <ul>
-                  <li>exp
-                     			as
-                     			xs:string
-                  </li>
-               </ul>
-               <h5>Returns</h5>
-               <ul>
-                  <li>element(): parse tree</li>
-               </ul>
+               <dl>
+                  <dt class="label">Summary</dt>
+                  <dd>The xp:parse function returns a parse tree for an expression.</dd>
+                  <dt class="label">Signature</dt>
+                  <dd>
+                     <div class="proto">declare function xp:parse($exp as xs:string) as element()</div>
+                  </dd>
+                  <dt class="label">Parameters</dt>
+                  <dd>
+                     <ul>
+                        <li>exp
+                           			as
+                           			xs:string
+                        </li>
+                     </ul>
+                  </dd>
+                  <dt class="label">Return</dt>
+                  <dd>
+                     <ul>
+                        <li>element(): parse tree</li>
+                     </ul>
+                  </dd>
+               </dl>
             </div>
             <div id="xp:parse#2">
                <h4>
             <a href="#xp:parse#2">xp:parse#2</a>
           </h4>
-               <div class="proto">declare function xp:parse($exp as xs:string, $options as map(*)) as element()</div>
-               <p>The xp:parse function returns a parse tree for an expression.</p>
-               <h5>Params</h5>
-               <ul>
-                  <li>exp
-                     			as
-                     			xs:string sttring to parse
-                  </li>
-                  <li>options
-                     			as
-                     			map(*) is a map of control options
-                  </li>
-               </ul>
-               <h5>Returns</h5>
-               <ul>
-                  <li>element(): parse tree</li>
-               </ul>
+               <dl>
+                  <dt class="label">Summary</dt>
+                  <dd>The xp:parse function returns a parse tree for an expression.</dd>
+                  <dt class="label">Signature</dt>
+                  <dd>
+                     <div class="proto">declare function xp:parse($exp as xs:string, $options as map(*)) as element()</div>
+                  </dd>
+                  <dt class="label">Parameters</dt>
+                  <dd>
+                     <ul>
+                        <li>exp
+                           			as
+                           			xs:string sttring to parse
+                        </li>
+                        <li>options
+                           			as
+                           			map(*) is a map of control options
+                        </li>
+                     </ul>
+                  </dd>
+                  <dt class="label">Return</dt>
+                  <dd>
+                     <ul>
+                        <li>element(): parse tree</li>
+                     </ul>
+                  </dd>
+               </dl>
             </div>
             <div id="xp:to-expression#1">
                <h4>
             <a href="#xp:to-expression#1">xp:to-expression#1</a>
           </h4>
-               <div class="proto">declare function xp:to-expression($in as element()) as xs:string</div>
-               <p>The xp:to-expression function returns an expression tree corresponding to a given
-                  parse tree.
-               </p>
-               <h5>Params</h5>
-               <ul>
-                  <li>in
-                     			as
-                     			element()
-                  </li>
-               </ul>
-               <h5>Returns</h5>
-               <ul>
-                  <li>xs:string</li>
-               </ul>
+               <dl>
+                  <dt class="label">Summary</dt>
+                  <dd>The xp:to-expression function returns an expression tree corresponding to a given
+                     parse tree.
+                  </dd>
+                  <dt class="label">Signature</dt>
+                  <dd>
+                     <div class="proto">declare function xp:to-expression($in as element()) as xs:string</div>
+                  </dd>
+                  <dt class="label">Parameters</dt>
+                  <dd>
+                     <ul>
+                        <li>in
+                           			as
+                           			element()
+                        </li>
+                     </ul>
+                  </dd>
+                  <dt class="label">Return</dt>
+                  <dd>
+                     <ul>
+                        <li>xs:string</li>
+                     </ul>
+                  </dd>
+               </dl>
             </div>
             <div id="xp:to-expression#2">
                <h4>
             <a href="#xp:to-expression#2">xp:to-expression#2</a>
           </h4>
-               <div class="proto">declare function xp:to-expression($in as element(), $options as map(*)) as xs:string</div>
-               <p>The xp:to-expression function returns an expression tree corresponding to a given
-                  parse tree.
-               </p>
-               <h5>Params</h5>
-               <ul>
-                  <li>in
-                     			as
-                     			element()
-                  </li>
-                  <li>options
-                     			as
-                     			map(*)
-                  </li>
-               </ul>
-               <h5>Returns</h5>
-               <ul>
-                  <li>xs:string</li>
-               </ul>
+               <dl>
+                  <dt class="label">Summary</dt>
+                  <dd>The xp:to-expression function returns an expression tree corresponding to a given
+                     parse tree.
+                  </dd>
+                  <dt class="label">Signature</dt>
+                  <dd>
+                     <div class="proto">declare function xp:to-expression($in as element(), $options as map(*)) as xs:string</div>
+                  </dd>
+                  <dt class="label">Parameters</dt>
+                  <dd>
+                     <ul>
+                        <li>in
+                           			as
+                           			element()
+                        </li>
+                        <li>options
+                           			as
+                           			map(*)
+                        </li>
+                     </ul>
+                  </dd>
+                  <dt class="label">Return</dt>
+                  <dd>
+                     <ul>
+                        <li>xs:string</li>
+                     </ul>
+                  </dd>
+               </dl>
             </div>
             <div id="xp:flatten#1">
                <h4>
             <a href="#xp:flatten#1">xp:flatten#1</a>
           </h4>
-               <div class="proto">declare function xp:flatten($input as element()) as element()</div>
-               <p>simplify by omitting elements with only one child</p>
-               <h5>Params</h5>
-               <ul>
-                  <li>input
-                     			as
-                     			element()
-                  </li>
-               </ul>
-               <h5>Returns</h5>
-               <ul>
-                  <li>element()</li>
-               </ul>
+               <dl>
+                  <dt class="label">Summary</dt>
+                  <dd>simplify by omitting elements with only one child</dd>
+                  <dt class="label">Signature</dt>
+                  <dd>
+                     <div class="proto">declare function xp:flatten($input as element()) as element()</div>
+                  </dd>
+                  <dt class="label">Parameters</dt>
+                  <dd>
+                     <ul>
+                        <li>input
+                           			as
+                           			element()
+                        </li>
+                     </ul>
+                  </dd>
+                  <dt class="label">Return</dt>
+                  <dd>
+                     <ul>
+                        <li>element()</li>
+                     </ul>
+                  </dd>
+               </dl>
             </div>
             <div id="xp:version#1">
                <h4>
             <a href="#xp:version#1">xp:version#1</a>
           </h4>
-               <div class="proto">declare function xp:version($opts as map(*)) as map(*)</div>
-               <p></p>
-               <h5>Params</h5>
-               <ul>
-                  <li>opts
-                     			as
-                     			map(*)
-                  </li>
-               </ul>
-               <h5>Returns</h5>
-               <ul>
-                  <li>map(*): parser function</li>
-               </ul>
+               <dl>
+                  <dt class="label">Summary</dt>
+                  <dd></dd>
+                  <dt class="label">Signature</dt>
+                  <dd>
+                     <div class="proto">declare function xp:version($opts as map(*)) as map(*)</div>
+                  </dd>
+                  <dt class="label">Parameters</dt>
+                  <dd>
+                     <ul>
+                        <li>opts
+                           			as
+                           			map(*)
+                        </li>
+                     </ul>
+                  </dd>
+                  <dt class="label">Return</dt>
+                  <dd>
+                     <ul>
+                        <li>map(*): parser function</li>
+                     </ul>
+                  </dd>
+               </dl>
             </div>
             <div id="xp:java-fixup#1">
                <h4>
             <a href="#xp:java-fixup#1">xp:java-fixup#1</a>
           </h4>
-               <div class="proto">declare %private function xp:java-fixup($name as xs:string) as xs:string</div>
-               <h5>Params</h5>
-               <ul>
-                  <li>name
-                     			as
-                     			xs:string
-                  </li>
-               </ul>
-               <h5>Returns</h5>
-               <ul>
-                  <li>xs:string</li>
-               </ul>
+               <dl>
+                  <dt class="label">Signature</dt>
+                  <dd>
+                     <div class="proto">declare %private function xp:java-fixup($name as xs:string) as xs:string</div>
+                  </dd>
+                  <dt class="label">Parameters</dt>
+                  <dd>
+                     <ul>
+                        <li>name
+                           			as
+                           			xs:string
+                        </li>
+                     </ul>
+                  </dd>
+                  <dt class="label">Return</dt>
+                  <dd>
+                     <ul>
+                        <li>xs:string</li>
+                     </ul>
+                  </dd>
+               </dl>
             </div>
             <div id="xp:get-parser#1">
                <h4>
             <a href="#xp:get-parser#1">xp:get-parser#1</a>
           </h4>
-               <div class="proto">declare function xp:get-parser($opts as map(*)) as function(*)</div>
-               <p>Select parser function for opts</p>
-               <h5>Params</h5>
-               <ul>
-                  <li>opts
-                     			as
-                     			map(*)
-                  </li>
-               </ul>
-               <h5>Returns</h5>
-               <ul>
-                  <li>function(*): parser function as function($xq as xs:string)</li>
-               </ul>
+               <dl>
+                  <dt class="label">Summary</dt>
+                  <dd>Select parser function for opts</dd>
+                  <dt class="label">Signature</dt>
+                  <dd>
+                     <div class="proto">declare function xp:get-parser($opts as map(*)) as function(*)</div>
+                  </dd>
+                  <dt class="label">Parameters</dt>
+                  <dd>
+                     <ul>
+                        <li>opts
+                           			as
+                           			map(*)
+                        </li>
+                     </ul>
+                  </dd>
+                  <dt class="label">Return</dt>
+                  <dd>
+                     <ul>
+                        <li>function(*): parser function as function($xq as xs:string)</li>
+                     </ul>
+                  </dd>
+               </dl>
             </div>
+         </div>
+         <div id="namespaces">
+            <h3>
+          <a href="#namespaces">Namespaces</a>
+        </h3>
+            <p>The following namespace are defined:</p>
+            <table style="float:none">
+               <thead>
+                  <tr>
+                     <th>Prefix</th>
+                     <th>Uri</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ann</td>
+                     <td>http://www.w3.org/2012/xquery</td>
+                  </tr>
+                  <tr>
+                     <td>xp</td>
+                     <td>http://expath.org/ns/xparse</td>
+                  </tr>
+               </tbody>
+            </table>
          </div>
          <div>
             <h3>Original Source Code</h3>
@@ -497,8 +612,8 @@
             <p style="text-align:right">
           <i></i>
                							|
-               							generated by ?
-               						
+               							generated at
+               							2017-03-12T22:54:05.124Z
             </p>
          </div>
       </div>
@@ -622,6 +737,12 @@
                   </li>
                </ol>
             </li>
+            <li>
+          <a href="#namespaces">
+            <span class="secno">4 </span>
+            <span class="content">Namespaces</span>
+          </a>
+        </li>
          </ol>
       </nav>
     <script type="application/javascript">

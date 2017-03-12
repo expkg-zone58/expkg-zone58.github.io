@@ -7,284 +7,283 @@
          					- xqDoc
          				
       </title>
-    <style type="text/css">
-					body {
-					font-family: Helvetica;
-					padding: 0.5em 1em;
-					}
-					pre {
-					font-family: Inconsolata, Consolas, monospace;
-					}
-					ol.results {
-					padding-left: 0;
-					}
-					.footer {
-					text-align:right;
-					border-top: solid 4px;
-					padding: 0.25em 0.5em;
-					font-size: 85%;
-					color: #999;
-					}
-					li.result {
-					list-style-position: inside;
-					list-style: none;
-					height:140px;
-					}
-					h2 {
-					display: inline-block;
-					margin: 0;
-					}
+    <style type="text/css">body {
+	font-family: Helvetica;
+	padding: 0.5em 1em;
+}
 
-					h2 a,
-					.result h3 a {
-					text-decoration: inherit;
-					color: inherit;
-					}
-					h3{
-					font-size: 140%;
-					background-color: #aaa;
-					border-bottom: 1px solid #000;
-					width: 100%;
-					}
-					h4{
-					font-size: 100%;
-					background-color: #ddd;
-					width: 90%;
-					}
+pre {
+	font-family: Inconsolata, Consolas, monospace;
+}
 
-					.namespace {
-					color: #999;
-					}
-					.namespace:before {
-					content: "{";
-					}
-					.namespace:after {
-					content: "}";
-					}
-					table{
-					width:75%;
-					float:right;
-					}
-					td {
-					height:100px;
-					width:50%;
-					vertical-align:text-top;
-					}
-				</style>
-    <style type="text/css">
-					/* from xsl:query.xsl (D) from
-					https://www.w3.org/TR/xpath-functions-31*/
-					div.exampleInner pre {
-					margin-left: 1em;
-					margin-top: 0em; margin-bottom: 0em}
+ol.results {
+	padding-left: 0;
+}
 
-					pre.small {
-					font-size: small }
-					div.exampleOuter {border: 4px double gray;
-					margin: 0em; padding: 0em}
-					div.exampleInner { background-color:
-					#d5dee3;
-					padding: 4px; margin: 0em }
+.footer {
+	text-align: right;
+	border-top: solid 4px;
+	padding: 0.25em 0.5em;
+	font-size: 85%;
+	color: #999;
+}
 
-					div.exampleInner table { border:
-					0;
-					border-spacing: 0;
-					}
+li.result {
+	list-style-position: inside;
+	list-style: none;
+	height: 140px;
+}
 
-					div.exampleInner td { vertical-align:
-					baseline;
-					padding: 0;
-					}
+h2 {
+	display: inline-block;
+	margin: 0;
+}
 
-					div.exampleWrapper { margin: 4px }
-					div.exampleHeader { font-weight: bold;
-					margin: 4px}
+h2 a, .result h3 a {
+	text-decoration: inherit;
+	color: inherit;
+}
 
-					div.proto {
-					border: 0;
-					border-spacing: 0;
-					}
+h3 {
+	font-size: 140%;
+	background-color: #aaa;
+	border-bottom: 1px solid #000;
+	width: 100%;
+}
 
-					div.issue { border-bottom-color:
-					black;
-					border-bottom-style: solid;
-					border-bottom-width: 1pt;
-					margin-bottom: 20pt;
-					}
+h4 {
+	font-size: 100%;
+	background-color: #ddd;
+	width: 90%;
+}
 
-					th.issue-toc-head { border-bottom-color:
-					black;
-					border-bottom-style: solid;
-					border-bottom-width: 1pt;
-					}
+.namespace {
+	color: #999;
+}
 
+.namespace:before {
+	content: "{";
+}
 
-					div.schemaComp { border: 4px double gray;
-					margin: 0em 1em;
-					padding:
-					0em;
-					}
-					div.compHeader { margin: 4px;
-					font-weight: bold;
-					}
-					span.schemaComp { background-color: white;
-					color: #A52A2A;
-					}
-					div.compBody { border-top-width: 4px;
-					border-top-style: double;
-					border-top-color: #d3d3d3;
-					padding: 4px;
-					margin: 0em;
-					}
+.namespace:after {
+	content: "}";
+}
 
-					div.exampleInner { background-color: #d5dee3;
-					color: black;
-					border-top-width: 4px;
-					border-top-style: double;
-					border-top-color:
-					#d3d3d3;
-					border-bottom-width: 4px;
-					border-bottom-style: double;
-					border-bottom-color: #d3d3d3;
-					padding: 4px;
-					margin-bottom: 4px;
-					}
+td {
+	vertical-align: text-top;
+}</style>
+    <style type="text/css">/* from xsl:query.xsl (D) from
+                    https://www.w3.org/TR/xpath-functions-31*/
+                    div.exampleInner pre {
+                    margin-left: 1em;
+                    margin-top: 0em; margin-bottom: 0em}
 
-					div.issueBody { margin-left: 0.25in;
-					}
+                    pre.small {
+                    font-size: small }
+                    div.exampleOuter {border: 4px double gray;
+                    margin: 0em; padding: 0em}
+                    div.exampleInner { background-color:
+                    #d5dee3;
+                    padding: 4px; margin: 0em }
 
-					code.function { font-weight:
-					bold;
-					}
-					code.return-type { font-style: italic;
-					}
-					code.return-varies {
-					font-weight: bold;
-					font-style: italic;
-					}
-					code.type { font-style:
-					italic;
-					}
-					code.as { font-style: normal;
-					}
-					code.arg {
-					}
-					code.strikeout {
-					text-decoration: line-through;
-					}
-					code.small { font-size: small;
-					}
-					p.table.footnote { font-size: 8pt;
-					}
+                    div.exampleInner table { border:
+                    0;
+                    border-spacing: 0;
+                    }
 
-					table.casting { font-size:
-					x-small;
-					}
-					table.hierarchy { font-size: x-small;
-					}
-					table.proto {
+                    div.exampleInner td { vertical-align:
+                    baseline;
+                    padding: 0;
+                    }
 
-					}
+                    div.exampleWrapper { margin: 4px }
+                    div.exampleHeader { font-weight: bold;
+                    margin: 4px}
 
-					td.castY { background-color: #7FFF7F;
-					color: black;
-					text-align:
-					center;
-					vertical-align: middle;
-					}
+                    div.proto {
+                    border: 0;
+                    border-spacing: 0;
+                    }
 
-					td.castN { background-color:
-					#FF7F7F;
-					color: black;
-					text-align: center;
-					vertical-align: middle;
-					}
+                    div.issue { border-bottom-color:
+                    black;
+                    border-bottom-style: solid;
+                    border-bottom-width: 1pt;
+                    margin-bottom: 20pt;
+                    }
 
-					td.castM { background-color: white;
-					color: black;
-					text-align: center;
-					vertical-align: middle;
-					}
-
-					td.castOther { background-color: yellow;
-					color: black;
-					text-align: center;
-					vertical-align: middle;
-					}
-
-					span.cancast:hover { background-color: #ffa;
-					color: black;
-					}
-
-					div.protoref { margin-left: 0.5in;
-					text-indent: -0.5in;
-					}
-
-					dd.indent {
-					margin-left: 2em;
-					}
-
-					p.element-syntax { border: solid thin;
-					background-color: #ffccff
-					}
-
-					p.element-syntax-chg { border: solid
-					thick yellow; background-color: #ffccff
-					}
-
-					div.proto {
-					padding: .5em;
-					border: .5em;
-					border-left-style: solid;
-					page-break-inside: avoid;
-					margin: 1em auto;
-					border-color: #ff99ff;
-					background: #ffe6ff;
-					overflow: auto;
-					}
+                    th.issue-toc-head { border-bottom-color:
+                    black;
+                    border-bottom-style: solid;
+                    border-bottom-width: 1pt;
+                    }
 
 
-					div.example-chg { border: solid thick yellow;
-					background-color: #40e0d0; padding:
-					1em
-					}
+                    div.schemaComp { border: 4px double gray;
+                    margin: 0em 1em;
+                    padding:
+                    0em;
+                    }
+                    div.compHeader { margin: 4px;
+                    font-weight: bold;
+                    }
+                    span.schemaComp { background-color: white;
+                    color: #A52A2A;
+                    }
+                    div.compBody { border-top-width: 4px;
+                    border-top-style: double;
+                    border-top-color: #d3d3d3;
+                    padding: 4px;
+                    margin: 0em;
+                    }
 
-					div.ffheader {
-					margin-top:
-					.8rem;
-					font-size: 140%;
-					font-variant: all-small-caps;
-					text-transform:
-					lowercase;
-					font-weight: bold;
-					color: hsla(203, 20%, 40%, .7);
-					}
+                    div.exampleInner { background-color: #d5dee3;
+                    color: black;
+                    border-top-width: 4px;
+                    border-top-style: double;
+                    border-top-color:
+                    #d3d3d3;
+                    border-bottom-width: 4px;
+                    border-bottom-style: double;
+                    border-bottom-color: #d3d3d3;
+                    padding: 4px;
+                    margin-bottom: 4px;
+                    }
 
-					span.verb { font: small-caps 100% sans-serif
-					}
+                    div.issueBody { margin-left: 0.25in;
+                    }
 
-					span.error {
-					font-size: small
-					}
+                    code.function { font-weight:
+                    bold;
+                    }
+                    code.return-type { font-style: italic;
+                    }
+                    code.return-varies {
+                    font-weight: bold;
+                    font-style: italic;
+                    }
+                    code.type { font-style:
+                    italic;
+                    }
+                    code.as { font-style: normal;
+                    }
+                    code.arg {
+                    }
+                    code.strikeout {
+                    text-decoration: line-through;
+                    }
+                    code.small { font-size: small;
+                    }
+                    p.table.footnote { font-size: 8pt;
+                    }
 
-					span.definition { font: small-caps 100% sans-serif
-					}
+                    table.casting { font-size:
+                    x-small;
+                    }
+                    table.hierarchy { font-size: x-small;
+                    }
+                    table.proto {
 
-					span.grayed { color: gray
-					}
+                    }
 
-					table.scrap td {
-					vertical-align:
-					baseline;
-					text-align: left;
-					padding-left: 30px;
-					}
+                    td.castY { background-color: #7FFF7F;
+                    color: black;
+                    text-align:
+                    center;
+                    vertical-align: middle;
+                    }
 
-					table.data
-					table.index {
-					border-bottom:2px !important ;
-					}
-				</style>
+                    td.castN { background-color:
+                    #FF7F7F;
+                    color: black;
+                    text-align: center;
+                    vertical-align: middle;
+                    }
+
+                    td.castM { background-color: white;
+                    color: black;
+                    text-align: center;
+                    vertical-align: middle;
+                    }
+
+                    td.castOther { background-color: yellow;
+                    color: black;
+                    text-align: center;
+                    vertical-align: middle;
+                    }
+
+                    span.cancast:hover { background-color: #ffa;
+                    color: black;
+                    }
+
+                    div.protoref { margin-left: 0.5in;
+                    text-indent: -0.5in;
+                    }
+
+                    dd.indent {
+                    margin-left: 2em;
+                    }
+
+                    p.element-syntax { border: solid thin;
+                    background-color: #ffccff
+                    }
+
+                    p.element-syntax-chg { border: solid
+                    thick yellow; background-color: #ffccff
+                    }
+
+                    div.proto {
+                    padding: .5em;
+                    border: .5em;
+                    border-left-style: solid;
+                    page-break-inside: avoid;
+                    margin: 1em auto;
+                    border-color: #ff99ff;
+                    background: #ffe6ff;
+                    overflow: auto;
+                    }
+
+
+                    div.example-chg { border: solid thick yellow;
+                    background-color: #40e0d0; padding:
+                    1em
+                    }
+
+                    div.ffheader {
+                    margin-top:
+                    .8rem;
+                    font-size: 140%;
+                    font-variant: all-small-caps;
+                    text-transform:
+                    lowercase;
+                    font-weight: bold;
+                    color: hsla(203, 20%, 40%, .7);
+                    }
+
+                    span.verb { font: small-caps 100% sans-serif
+                    }
+
+                    span.error {
+                    font-size: small
+                    }
+
+                    span.definition { font: small-caps 100% sans-serif
+                    }
+
+                    span.grayed { color: gray
+                    }
+
+                    table.scrap td {
+                    vertical-align:
+                    baseline;
+                    text-align: left;
+                    padding-left: 30px;
+                    }
+
+                    table.data
+                    table.index {
+                    border-bottom:2px !important ;
+                    }</style>
     <script src="lib/prettify.js" type="text/javascript"> </script>
     <script src="lib/lang-xq.js" type="text/javascript"> </script>
     <link rel="stylesheet" type="text/css" href="../resources/base.css">
@@ -298,14 +297,24 @@
             			library
             			module
             		
-         </h1>expkg-zone58.metadata.audioaudiotagger.xqm
-         <p>Extract mp3 tags using jaudiotagger</p>
-         		See also:
-         		https://bitbucket.org/ijabz/jaudiotagger
-         <p>
-            			Author:
-            			andy bunce
-         </p>june 2016apache 2
+         </h1>
+         <dl>
+            <dt class="label">Summary</dt>
+            <dd>Extract mp3 tags using jaudiotagger</dd>
+            <dt>Rest</dt>
+            <dd>expkg-zone58.metadata.audioaudiotagger.xqmExtract mp3 tags using jaudiotagger
+               		See also:
+               		https://bitbucket.org/ijabz/jaudiotagger
+               <p>
+                  			Author:
+                  			andy bunce
+               </p>
+               <p>
+                  			Version:
+                  			0.6.0
+               </p>apache 2
+            </dd>
+         </dl>
          <div id="variables">
             <h3>
           <a href="#variables">Variables</a>
@@ -314,10 +323,11 @@
                <h4>
             <a href="#$tags:names">$tags:names</a>
           </h4>
-          <pre>
-				as
-				item()*</pre>
-        </div>
+               <dl>
+                  <dt class="label">Type</dt>
+                  <dd>item()*</dd>
+               </dl>
+            </div>
          </div>
          <div id="functions">
             <h3>
@@ -327,132 +337,202 @@
                <h4>
             <a href="#tags:read#1">tags:read#1</a>
           </h4>
-               <div class="proto">declare function tags:read($f as xs:string) as element(metadata)</div>
-               <p>tag details from file name trapping all errors</p>
-               <h5>Params</h5>
-               <ul>
-                  <li>f
-                     			as
-                     			xs:string
-                  </li>
-               </ul>
-               <h5>Returns</h5>
-               <ul>
-                  <li>element(metadata)</li>
-               </ul>
+               <dl>
+                  <dt class="label">Summary</dt>
+                  <dd>tag details from file name trapping all errors</dd>
+                  <dt class="label">Signature</dt>
+                  <dd>
+                     <div class="proto">declare function tags:read($f as xs:string) as element(metadata)</div>
+                  </dd>
+                  <dt class="label">Parameters</dt>
+                  <dd>
+                     <ul>
+                        <li>f
+                           			as
+                           			xs:string filepath of audio file
+                        </li>
+                     </ul>
+                  </dd>
+                  <dt class="label">Return</dt>
+                  <dd>
+                     <ul>
+                        <li>element(metadata)</li>
+                     </ul>
+                  </dd>
+               </dl>
             </div>
             <div id="tags:extract#1">
                <h4>
             <a href="#tags:extract#1">tags:extract#1</a>
           </h4>
-               <div class="proto">declare function tags:extract($f as xs:string) as element()*</div>
-               <h5>Params</h5>
-               <ul>
-                  <li>f
-                     			as
-                     			xs:string
-                  </li>
-               </ul>
-               <h5>Returns</h5>
-               <ul>
-                  <li>element()*</li>
-               </ul>
+               <dl>
+                  <dt class="label">Signature</dt>
+                  <dd>
+                     <div class="proto">declare function tags:extract($f as xs:string) as element()*</div>
+                  </dd>
+                  <dt class="label">Parameters</dt>
+                  <dd>
+                     <ul>
+                        <li>f
+                           			as
+                           			xs:string
+                        </li>
+                     </ul>
+                  </dd>
+                  <dt class="label">Return</dt>
+                  <dd>
+                     <ul>
+                        <li>element()*</li>
+                     </ul>
+                  </dd>
+               </dl>
             </div>
             <div id="tags:getFields#3">
                <h4>
             <a href="#tags:getFields#3">tags:getFields#3</a>
           </h4>
-               <div class="proto">declare function tags:getFields($name as item()*, $tag as item()*, $f as function(xs:string,
-                  xs:string) as element()) as element()*
-               </div>
-               <h5>Params</h5>
-               <ul>
-                  <li>name
-                     			as
-                     			item()*
-                  </li>
-                  <li>tag
-                     			as
-                     			item()*
-                  </li>
-                  <li>f
-                     			as
-                     			function(xs:string, xs:string) as element()
-                  </li>
-               </ul>
-               <h5>Returns</h5>
-               <ul>
-                  <li>element()*</li>
-               </ul>
-            </div>
-            <div id="tags:style-e#2">
-               <h4>
-            <a href="#tags:style-e#2">tags:style-e#2</a>
-          </h4>
-               <div class="proto">declare function tags:style-e($name as xs:string, $value as xs:string) as element()</div>
-               <h5>Params</h5>
-               <ul>
-                  <li>name
-                     			as
-                     			xs:string
-                  </li>
-                  <li>value
-                     			as
-                     			xs:string
-                  </li>
-               </ul>
-               <h5>Returns</h5>
-               <ul>
-                  <li>element()</li>
-               </ul>
+               <dl>
+                  <dt class="label">Signature</dt>
+                  <dd>
+                     <div class="proto">declare function tags:getFields($name as item()*, $tag as item()*, $f as function(xs:string,
+                        xs:string) as element()) as element()*
+                     </div>
+                  </dd>
+                  <dt class="label">Parameters</dt>
+                  <dd>
+                     <ul>
+                        <li>name
+                           			as
+                           			item()*
+                        </li>
+                        <li>tag
+                           			as
+                           			item()*
+                        </li>
+                        <li>f
+                           			as
+                           			function(xs:string, xs:string) as element()
+                        </li>
+                     </ul>
+                  </dd>
+                  <dt class="label">Return</dt>
+                  <dd>
+                     <ul>
+                        <li>element()*</li>
+                     </ul>
+                  </dd>
+               </dl>
             </div>
             <div id="tags:style-a#3">
                <h4>
             <a href="#tags:style-a#3">tags:style-a#3</a>
           </h4>
-               <div class="proto">declare function tags:style-a($name as xs:string, $value as xs:string, $dir as xs:string)
-                  as element()
-               </div>
-               <h5>Params</h5>
-               <ul>
-                  <li>name
-                     			as
-                     			xs:string
-                  </li>
-                  <li>value
-                     			as
-                     			xs:string
-                  </li>
-                  <li>dir
-                     			as
-                     			xs:string
-                  </li>
-               </ul>
-               <h5>Returns</h5>
-               <ul>
-                  <li>element()</li>
-               </ul>
+               <dl>
+                  <dt class="label">Signature</dt>
+                  <dd>
+                     <div class="proto">declare %private function tags:style-a($name as xs:string, $value as xs:string, $dir
+                        as xs:string) as element(tag)
+                     </div>
+                  </dd>
+                  <dt class="label">Parameters</dt>
+                  <dd>
+                     <ul>
+                        <li>name
+                           			as
+                           			xs:string
+                        </li>
+                        <li>value
+                           			as
+                           			xs:string
+                        </li>
+                        <li>dir
+                           			as
+                           			xs:string
+                        </li>
+                     </ul>
+                  </dd>
+                  <dt class="label">Return</dt>
+                  <dd>
+                     <ul>
+                        <li>element(tag)</li>
+                     </ul>
+                  </dd>
+               </dl>
             </div>
             <div id="tags:clean-string#1">
                <h4>
             <a href="#tags:clean-string#1">tags:clean-string#1</a>
           </h4>
-               <div class="proto">declare %private function tags:clean-string($s as item()*) as item()*</div>
-               <p>remove bad chars from java string need more eg [^\x09\x0A\x0D\x20-\uD7FF\uE000-\uFFFD\u10000-u10FFFF]</p>
-               		See also:
-               		http://stackoverflow.com/a/14323524
-               <h5>Params</h5>
-               <ul>
-                  <li>s
-                     			as
-                     			item()*
-                  </li>
-               </ul>
-               <h5>Returns</h5>
-               <ul>
-                  <li>item()*</li>
-               </ul>
+               <dl>
+                  <dt class="label">Summary</dt>
+                  <dd>remove bad chars from java string
+                     need more eg [^\x09\x0A\x0D\x20-\uD7FF\uE000-\uFFFD\u10000-u10FFFF]
+                  </dd>
+                  <dt class="label">Signature</dt>
+                  <dd>
+                     <div class="proto">declare %private function tags:clean-string($s as item()*) as item()*</div>
+                  </dd>
+                  <dt class="label">Parameters</dt>
+                  <dd>
+                     <ul>
+                        <li>s
+                           			as
+                           			item()*
+                        </li>
+                     </ul>
+                  </dd>
+                  <dt class="label">Return</dt>
+                  <dd>
+                     <ul>
+                        <li>item()*</li>
+                     </ul>
+                  </dd>
+               </dl>
             </div>
+         </div>
+         <div id="namespaces">
+            <h3>
+          <a href="#namespaces">Namespaces</a>
+        </h3>
+            <p>The following namespace are defined:</p>
+            <table style="float:none">
+               <thead>
+                  <tr>
+                     <th>Prefix</th>
+                     <th>Uri</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>FieldKey</td>
+                     <td>java:org.jaudiotagger.tag.FieldKey</td>
+                  </tr>
+                  <tr>
+                     <td>MP3File</td>
+                     <td>java:org.jaudiotagger.audio.mp3.MP3File</td>
+                  </tr>
+                  <tr>
+                     <td>Tag</td>
+                     <td>java:org.jaudiotagger.tag.Tag</td>
+                  </tr>
+                  <tr>
+                     <td>TagTextField</td>
+                     <td>java:org.jaudiotagger.tag.TagTextField</td>
+                  </tr>
+                  <tr>
+                     <td>ann</td>
+                     <td>http://www.w3.org/2012/xquery</td>
+                  </tr>
+                  <tr>
+                     <td>list</td>
+                     <td>java:java.util.List</td>
+                  </tr>
+                  <tr>
+                     <td>tags</td>
+                     <td>expkg-zone58.metadata.audio</td>
+                  </tr>
+               </tbody>
+            </table>
          </div>
          <div>
             <h3>Original Source Code</h3>
@@ -463,8 +543,8 @@
             <p style="text-align:right">
           <i></i>
                							|
-               							generated by ?
-               						
+               							generated at
+               							2017-03-12T22:54:05.164Z
             </p>
          </div>
       </div>
@@ -552,18 +632,16 @@
                     <span class="content">tags:style-a#3</span>
                   </a>
                 </li>
-                        <li>
-                  <a href="#tags:style-e#2">
-                    <span class="secno">
-                                 												3.
-                                 												6</span>
-                    <span class="content">tags:style-e#2</span>
-                  </a>
-                </li>
                      </ol>
                   </li>
                </ol>
             </li>
+            <li>
+          <a href="#namespaces">
+            <span class="secno">4 </span>
+            <span class="content">Namespaces</span>
+          </a>
+        </li>
          </ol>
       </nav>
     <script type="application/javascript">

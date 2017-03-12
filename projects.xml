@@ -45,7 +45,7 @@
 		<description>XQuery interface for Graphviz with EXPath packaging.
 		</description>
 		<local path="C:\Users\andy\git\ex-graphviz\" />
-		<doc src="dist/graphviz.xqm.xml" />
+		<doc src="dist/doc/graphviz.xqm.xml" />
 	</project>
 
 	<project name="ex-dotml">
