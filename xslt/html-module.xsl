@@ -5,9 +5,13 @@
 	exclude-result-prefixes="xs doc fn" version="2.0">
 	<!-- Standalone xqdoc:xqdoc transform -->
 	<xsl:param name="source" as="xs:string" />
+	<xsl:param name="show-private" as="xs:boolean" select="false()" />
+
 	<xsl:variable name="css" select="'../resources/base.css'" />
-	<xsl:variable name="vars" select="//doc:variable" />
-	<xsl:variable name="funs" select="//doc:function" />
+	<xsl:variable name="vars"
+		select="//doc:variable[$show-private or not(doc:annotations/doc:annotation/@name='private')]" />
+	<xsl:variable name="funs"
+		select="//doc:function[$show-private or not(doc:annotations/doc:annotation/@name='private')]" />
 	<xsl:variable name="docuri"
 		select="//doc:xqdoc/doc:module/doc:uri/string()" />
 	<!-- generate module html // -->
@@ -30,14 +34,16 @@
 					<xsl:value-of select="unparsed-text('../resources/query.css','UTF-8')" />
 				</style>
 
-				<script src="lib/prettify.js" type="text/javascript">&#160;</script>
-				<script src="lib/lang-xq.js" type="text/javascript">&#160;</script>
 				<link rel="stylesheet" type="text/css" href="{$css}" />
 				<link rel="stylesheet" type="text/css" href="lib/prettify.css" />
+
+				<script src="lib/prettify.js" type="text/javascript">&#160;</script>
+				<script src="lib/lang-xq.js" type="text/javascript">&#160;</script>
 			</head>
 			<body class="home" id="top">
 				<div id="main">
 					<xsl:apply-templates select="doc:module" />
+					<xsl:call-template name="toc" />
 					<xsl:apply-templates select="doc:variables" />
 					<xsl:apply-templates select="doc:functions" />
 
@@ -61,7 +67,7 @@
 						</p>
 					</div>
 				</div>
-				<xsl:call-template name="toc" />
+
 				<script type="application/javascript">
 					window.onload = function(){ prettyPrint(); }
 				</script>
@@ -102,7 +108,7 @@
 				</thead>
 				<tbody>
 					<xsl:for-each select="doc:namespace">
-					    <xsl:sort select="@prefix"/>
+						<xsl:sort select="lower-case(@prefix)" />
 						<tr>
 							<td>
 								<xsl:value-of select="string(@prefix)" />
@@ -126,7 +132,6 @@
 		</div>
 	</xsl:template>
 
-	<xsl:template match="doc:variable[@private]" />
 
 	<xsl:template match="doc:variable">
 		<xsl:variable name="id" select="concat('$',doc:name)" />
@@ -157,36 +162,68 @@
 			<h3>
 				<a href="#functions">Functions</a>
 			</h3>
-			<xsl:apply-templates select="doc:function" />
+			<xsl:for-each-group select="$funs" group-by="doc:name">
+				<xsl:sort select="lower-case(doc:name)" />
+
+				<xsl:call-template name="function">
+					<xsl:with-param name="fun" select="current-group()" />
+				</xsl:call-template>
+
+			</xsl:for-each-group>
+			<!-- <xsl:apply-templates select="doc:function" /> -->
+
 		</div>
 	</xsl:template>
 
-	<xsl:template match="doc:function[@private]" />
 
-	<xsl:template match="doc:function">
-		<xsl:variable name="id" select="concat( doc:name, '#', @arity)" />
-		<div id="{ $id }">
+	<xsl:template name="function">
+		<xsl:param name="fun" as="element(doc:function)*" />
+		<xsl:variable name="id" select="$fun[1]/doc:name" />
+		<xsl:variable name="funs" >
+		  <xsl:for-each select="fun">
+		      <xsl:sort select="@arity" data-type="number"/>
+		      <xsl:copy-of select="."/>
+		      </xsl:for-each>	  
+		</xsl:variable>
+		
+		<div id="{$id}">
 			<h4>
 				<a href="#{$id}">
 					<xsl:value-of select="$id" />
 				</a>
 			</h4>
-			<dl>
 
-				<xsl:apply-templates select="doc:comment/doc:description" />
+			<xsl:apply-templates select="$fun[1]/doc:comment/doc:description" />
+			<dt class="label">Signature</dt>
+			<dd>
+				<xsl:apply-templates select="$fun" mode="signature" />
+			</dd>
+			<xsl:apply-templates select="$fun[1]/doc:parameters" />
+			<xsl:apply-templates select="$fun[1]/doc:return" />
+			<xsl:apply-templates select="$fun[1]/doc:comment/doc:error" />
+			<xsl:apply-templates select="$fun[1]/doc:annotations" />
+		</div>
+	</xsl:template>
 
-				<dt class="label">Signature</dt>
-				<dd>
-					<div class="proto">
-						<xsl:value-of select="doc:signature" />
-					</div>
-				</dd>
-
-				<xsl:apply-templates select="doc:parameters" />
-				<xsl:apply-templates select="doc:return" />
-				<xsl:apply-templates select="doc:comment/doc:error" />
-			</dl>
-
+	<xsl:template match="doc:function" mode="signature">
+		<div class="proto">
+			<code class="function">
+				<xsl:value-of select="doc:name" />
+			</code>
+			<xsl:text>( </xsl:text>
+			<xsl:for-each select="doc:parameters/doc:parameter">
+				<code class="arg">
+					<xsl:value-of select="doc:name" />
+				</code>
+				<code class="as">&#160;as&#160;</code>
+				<code class="type"><xsl:value-of select="doc:type" /></code>
+				<xsl:if test="position() != last()">
+					<xsl:text>, </xsl:text>
+				</xsl:if>
+			</xsl:for-each>
+			<xsl:text> )</xsl:text>
+			<code class="as">&#160;as&#160;</code>
+			<code class="return-type"><xsl:value-of select="doc:return/doc:type" /></code>
 		</div>
 	</xsl:template>
 
@@ -237,6 +274,10 @@
 			<xsl:value-of select="normalize-space(.)" />
 		</dd>
 	</xsl:template>
+	
+<xsl:template match="doc:annotations">
+ANNOT
+</xsl:template>
 
 	<xsl:template match="doc:comment">
 		<xsl:apply-templates mode="custom" />
@@ -385,10 +426,9 @@
 								<span class="content">Functions</span>
 							</a>
 							<ol class="toc">
-								<xsl:for-each select="$funs">
-									<xsl:sort select="doc:name" />
-									<xsl:variable name="id"
-										select="concat( doc:name, '#', @arity)" />
+								<xsl:for-each-group select="$funs" group-by="doc:name">
+									<xsl:sort select="lower-case(doc:name)" />
+									<xsl:variable name="id" select="current-grouping-key()" />
 									<li>
 										<a href="#{$id}">
 											<span class="secno">
@@ -400,18 +440,18 @@
 											</span>
 										</a>
 									</li>
-								</xsl:for-each>
+								</xsl:for-each-group>
 							</ol>
 						</li>
 					</ol>
 
 				</li>
 				<li>
-                    <a href="#namespaces">
-                        <span class="secno">4 </span>
-                        <span class="content">Namespaces</span>
-                    </a>
-                </li>
+					<a href="#namespaces">
+						<span class="secno">4 </span>
+						<span class="content">Namespaces</span>
+					</a>
+				</li>
 			</ol>
 		</nav>
 	</xsl:template>

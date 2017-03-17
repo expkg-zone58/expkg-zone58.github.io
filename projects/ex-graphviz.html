@@ -284,11 +284,11 @@ td {
                     table.index {
                     border-bottom:2px !important ;
                     }</style>
-    <script src="lib/prettify.js" type="text/javascript"> </script>
-    <script src="lib/lang-xq.js" type="text/javascript"> </script>
     <link rel="stylesheet" type="text/css" href="../resources/base.css">
       <link rel="stylesheet" type="text/css" href="lib/prettify.css">
-   </head>
+    <script src="lib/prettify.js" type="text/javascript"> </script>
+    <script src="lib/lang-xq.js" type="text/javascript"> </script>
+  </head>
    <body class="home" id="top">
       <div id="main">
          <h1>
@@ -300,15 +300,17 @@ td {
          </h1>
          <dl>
             <dt class="label">Summary</dt>
-            <dd>Wrapper for using of 
+            <dd>Wrapper for using  
                <a xmlns="" xmlns:xqdoc="http://www.xqdoc.org/1.0" href="graphviz.org">Graphviz</a>.
-               Assumes Graphviz executables are available on path
+               It requires the Graphviz executables are available on path or in folder located by
+               $GVPATH
             </dd>
             <dt>Rest</dt>
-            <dd>http://expkg-zone58.github.io/ex-graphvizgraphviz.xqmWrapper for using ofGraphviz. Assumes Graphviz executables are available on path
+            <dd>http://expkg-zone58.github.io/ex-graphvizgraphviz.xqmWrapper for usingGraphviz. It requires the Graphviz executables are available on path or in folder located
+               by $GVPATH
                <p>
                   			Version:
-                  			0.1.0
+                  			0.2.0
                </p>
                <p>
                   			Author:
@@ -316,41 +318,104 @@ td {
                </p>
             </dd>
          </dl>
+         <nav id="toc">
+            <div>
+          <a href="..">↰</a>http://expkg-zone58.github.io/ex-graphviz
+            </div>
+            <h2>
+          <a id="contents"></a>
+               				Table of Contents
+               			
+            </h2>
+            <ol class="toc">
+               <li>
+            <a href="#main">
+              <span class="secno">1 </span>
+              <span class="content">Introduction</span>
+            </a>
+          </li>
+               <li>
+                  <ol class="toc">
+                     <li>
+                <a href="#variables">
+                  <span class="secno">2 </span>
+                  <span class="content">Variables</span>
+                </a>
+                <ol class="toc"></ol>
+                     </li>
+                  </ol>
+               </li>
+               <li>
+                  <ol class="toc">
+                     <li>
+                <a href="#functions">
+                  <span class="secno">3 </span>
+                  <span class="content">Functions</span>
+                </a>
+                <ol class="toc">
+                           <li>
+                    <a href="#ex-graphviz:autosize">
+                      <span class="secno">
+                                    												3.
+                                    												1</span>
+                      <span class="content">ex-graphviz:autosize</span>
+                    </a>
+                  </li>
+                           <li>
+                    <a href="#ex-graphviz:clean">
+                      <span class="secno">
+                                    												3.
+                                    												2</span>
+                      <span class="content">ex-graphviz:clean</span>
+                    </a>
+                  </li>
+                           <li>
+                    <a href="#ex-graphviz:dot-executeb">
+                      <span class="secno">
+                                    												3.
+                                    												3</span>
+                      <span class="content">ex-graphviz:dot-executeb</span>
+                    </a>
+                  </li>
+                           <li>
+                    <a href="#ex-graphviz:rdf">
+                      <span class="secno">
+                                    												3.
+                                    												4</span>
+                      <span class="content">ex-graphviz:rdf</span>
+                    </a>
+                  </li>
+                           <li>
+                    <a href="#ex-graphviz:to-svg">
+                      <span class="secno">
+                                    												3.
+                                    												5</span>
+                      <span class="content">ex-graphviz:to-svg</span>
+                    </a>
+                  </li>
+                        </ol>
+                     </li>
+                  </ol>
+               </li>
+               <li>
+            <a href="#namespaces">
+              <span class="secno">4 </span>
+              <span class="content">Namespaces</span>
+            </a>
+          </li>
+            </ol>
+         </nav>
          <div id="variables">
             <h3>
           <a href="#variables">Variables</a>
         </h3>
-            <div id="$ex-graphviz:dotpath">
-               <h4>
-            <a href="#$ex-graphviz:dotpath">$ex-graphviz:dotpath</a>
-          </h4>
-               <dl>
-                  <dt class="label">Summary</dt>
-                  <dd>PATH for 
-                     <cmd xmlns="" xmlns:xqdoc="http://www.xqdoc.org/1.0">dot</cmd> executable.
-                  </dd>
-                  <dt class="label">Type</dt>
-                  <dd>item()*</dd>
-               </dl>
-            </div>
-            <div id="$ex-graphviz:tmpdir">
-               <h4>
-            <a href="#$ex-graphviz:tmpdir">$ex-graphviz:tmpdir</a>
-          </h4>
-               <dl>
-                  <dt class="label">Summary</dt>
-                  <dd>folder for temp files \=windows</dd>
-                  <dt class="label">Type</dt>
-                  <dd>item()*</dd>
-               </dl>
-            </div>
             <div id="$ex-graphviz:empty">
                <h4>
             <a href="#$ex-graphviz:empty">$ex-graphviz:empty</a>
           </h4>
                <dl>
                   <dt class="label">Summary</dt>
-                  <dd>SVG to return when dot is empty</dd>
+                  <dd>SVG to return when supplied dot string is empty</dd>
                   <dt class="label">Type</dt>
                   <dd>document-node()</dd>
                </dl>
@@ -360,219 +425,182 @@ td {
             <h3>
           <a href="#functions">Functions</a>
         </h3>
-            <div id="to-svg#1">
+            <div id="ex-graphviz:autosize">
                <h4>
-            <a href="#to-svg#1">to-svg#1</a>
+            <a href="#ex-graphviz:autosize">ex-graphviz:autosize</a>
           </h4>
-               <dl>
-                  <dt class="label">Summary</dt>
-                  <dd>Layout graph in the DOT language and return as SVG</dd>
-                  <dt class="label">Signature</dt>
-                  <dd>
-                     <div class="proto">declare function to-svg($dot as xs:string) as document-node()</div>
-                  </dd>
-                  <dt class="label">Parameters</dt>
-                  <dd>
-                     <ul>
-                        <li>dot
-                           			as
-                           			xs:string
-                        </li>
-                     </ul>
-                  </dd>
-                  <dt class="label">Return</dt>
-                  <dd>
-                     <ul>
-                        <li>document-node(): svg document</li>
-                     </ul>
-                  </dd>
-               </dl>
+               <dt class="label">Summary</dt>
+               <dd>Tweak svg to autosize to 100%, assumes svg is from graphviz and viewBox is set.</dd>
+               <dt class="label">Signature</dt>
+               <dd>
+                  <div class="proto">
+              <code class="function">ex-graphviz:autosize</code>( <code class="arg">svg</code>
+              <code class="as">&nbsp;as&nbsp;</code>
+              <code class="type">element(svg:svg)</code> )<code class="as">&nbsp;as&nbsp;</code>
+              <code class="return-type">element(svg:svg)</code>
             </div>
-            <div id="to-svg#2">
-               <h4>
-            <a href="#to-svg#2">to-svg#2</a>
-          </h4>
-               <dl>
-                  <dt class="label">Summary</dt>
-                  <dd>Layout  graph given in the DOT language and render  as SVG.</dd>
-                  <dt class="label">Signature</dt>
-                  <dd>
-                     <div class="proto">declare function to-svg($dot as xs:string, $params as xs:string*) as document-node()</div>
-                  </dd>
-                  <dt class="label">Parameters</dt>
-                  <dd>
-                     <ul>
-                        <li>dot
-                           			as
-                           			xs:string
-                        </li>
-                        <li>params
-                           			as
-                           			xs:string*
-                        </li>
-                     </ul>
-                  </dd>
-                  <dt class="label">Return</dt>
-                  <dd>
-                     <ul>
-                        <li>document-node()</li>
-                     </ul>
-                  </dd>
-               </dl>
+               </dd>
+               <dt class="label">Parameters</dt>
+               <dd>
+                  <ul>
+                     <li>svg
+                        			as
+                        			element(svg:svg)
+                     </li>
+                  </ul>
+               </dd>
+               <dt class="label">Return</dt>
+               <dd>
+                  <ul>
+                     <li>element(svg:svg)</li>
+                  </ul>
+               </dd>
             </div>
-            <div id="dot-execute#2">
+            <div id="ex-graphviz:clean">
                <h4>
-            <a href="#dot-execute#2">dot-execute#2</a>
+            <a href="#ex-graphviz:clean">ex-graphviz:clean</a>
           </h4>
-               <dl>
-                  <dt class="label">Summary</dt>
-                  <dd>run dot command</dd>
-                  <dt class="label">Signature</dt>
-                  <dd>
-                     <div class="proto">declare %private function dot-execute($dot as xs:string, $params as xs:string*) as
-                        element(result)
-                     </div>
-                  </dd>
-                  <dt class="label">Parameters</dt>
-                  <dd>
-                     <ul>
-                        <li>dot
-                           			as
-                           			xs:string
-                        </li>
-                        <li>params
-                           			as
-                           			xs:string*
-                        </li>
-                     </ul>
-                  </dd>
-                  <dt class="label">Return</dt>
-                  <dd>
-                     <ul>
-                        <li>element(result)</li>
-                     </ul>
-                  </dd>
-               </dl>
+               <dt class="label">Summary</dt>
+               <dd>cleanup dot svg result</dd>
+               <dt class="label">Signature</dt>
+               <dd>
+                  <div class="proto">
+              <code class="function">ex-graphviz:clean</code>( <code class="arg">doc</code>
+              <code class="as">&nbsp;as&nbsp;</code>
+              <code class="type">document-node()</code> )<code class="as">&nbsp;as&nbsp;</code>
+              <code class="return-type">element(svg:svg)</code>
             </div>
-            <div id="dot-executeb#2">
-               <h4>
-            <a href="#dot-executeb#2">dot-executeb#2</a>
-          </h4>
-               <dl>
-                  <dt class="label">Summary</dt>
-                  <dd>run dot command  returning binary</dd>
-                  <dt class="label">Signature</dt>
-                  <dd>
-                     <div class="proto">declare function dot-executeb($dot as xs:string, $params as xs:string*) as xs:base64Binary</div>
-                  </dd>
-                  <dt class="label">Parameters</dt>
-                  <dd>
-                     <ul>
-                        <li>dot
-                           			as
-                           			xs:string
-                        </li>
-                        <li>params
-                           			as
-                           			xs:string*
-                        </li>
-                     </ul>
-                  </dd>
-                  <dt class="label">Return</dt>
-                  <dd>
-                     <ul>
-                        <li>xs:base64Binary</li>
-                     </ul>
-                  </dd>
-               </dl>
+               </dd>
+               <dt class="label">Parameters</dt>
+               <dd>
+                  <ul>
+                     <li>doc
+                        			as
+                        			document-node()
+                     </li>
+                  </ul>
+               </dd>
+               <dt class="label">Return</dt>
+               <dd>
+                  <ul>
+                     <li>element(svg:svg)</li>
+                  </ul>
+               </dd>
             </div>
-            <div id="dot-svg#1">
+            <div id="ex-graphviz:dot-executeb">
                <h4>
-            <a href="#dot-svg#1">dot-svg#1</a>
+            <a href="#ex-graphviz:dot-executeb">ex-graphviz:dot-executeb</a>
           </h4>
-               <dl>
-                  <dt class="label">Summary</dt>
-                  <dd>cleanup dot svg result</dd>
-                  <dt class="label">Signature</dt>
-                  <dd>
-                     <div class="proto">declare %private function dot-svg($r as element(result)) as element(svg:svg)</div>
-                  </dd>
-                  <dt class="label">Parameters</dt>
-                  <dd>
-                     <ul>
-                        <li>r
-                           			as
-                           			element(result)
-                        </li>
-                     </ul>
-                  </dd>
-                  <dt class="label">Return</dt>
-                  <dd>
-                     <ul>
-                        <li>element(svg:svg)</li>
-                     </ul>
-                  </dd>
-               </dl>
+               <dt class="label">Summary</dt>
+               <dd>run dot command  returning binary</dd>
+               <dt class="label">Signature</dt>
+               <dd>
+                  <div class="proto">
+              <code class="function">ex-graphviz:dot-executeb</code>( <code class="arg">dot</code>
+              <code class="as">&nbsp;as&nbsp;</code>
+              <code class="type">xs:string</code>, <code class="arg">params</code>
+              <code class="as">&nbsp;as&nbsp;</code>
+              <code class="type">xs:string</code> )<code class="as">&nbsp;as&nbsp;</code>
+              <code class="return-type">xs:base64Binary</code>
             </div>
-            <div id="rdf#2">
-               <h4>
-            <a href="#rdf#2">rdf#2</a>
-          </h4>
-               <dl>
-                  <dt class="label">Summary</dt>
-                  <dd>metadata RDF for operation</dd>
-                  <dt class="label">Signature</dt>
-                  <dd>
-                     <div class="proto">declare function rdf($title as xs:string, $ver as xs:string) as item()*</div>
-                  </dd>
-                  <dt class="label">Parameters</dt>
-                  <dd>
-                     <ul>
-                        <li>title
-                           			as
-                           			xs:string
-                        </li>
-                        <li>ver
-                           			as
-                           			xs:string
-                        </li>
-                     </ul>
-                  </dd>
-                  <dt class="label">Return</dt>
-                  <dd>
-                     <ul>
-                        <li>element()</li>
-                     </ul>
-                  </dd>
-               </dl>
+               </dd>
+               <dt class="label">Parameters</dt>
+               <dd>
+                  <ul>
+                     <li>dot
+                        			as
+                        			xs:string dot string
+                     </li>
+                     <li>params
+                        			as
+                        			xs:string* additional arguments supplied to executable
+                     </li>
+                  </ul>
+               </dd>
+               <dt class="label">Return</dt>
+               <dd>
+                  <ul>
+                     <li>xs:base64Binary</li>
+                  </ul>
+               </dd>
+               <dt class="label">Error</dt>
+               <dd>ex-graphviz:exec error running executable</dd>
             </div>
-            <div id="autosize#1">
+            <div id="ex-graphviz:rdf">
                <h4>
-            <a href="#autosize#1">autosize#1</a>
+            <a href="#ex-graphviz:rdf">ex-graphviz:rdf</a>
           </h4>
-               <dl>
-                  <dt class="label">Summary</dt>
-                  <dd>set svg to autosize 100%</dd>
-                  <dt class="label">Signature</dt>
-                  <dd>
-                     <div class="proto">declare function autosize($svg as element(svg:svg)) as element(svg:svg)</div>
-                  </dd>
-                  <dt class="label">Parameters</dt>
-                  <dd>
-                     <ul>
-                        <li>svg
-                           			as
-                           			element(svg:svg)
-                        </li>
-                     </ul>
-                  </dd>
-                  <dt class="label">Return</dt>
-                  <dd>
-                     <ul>
-                        <li>element(svg:svg)</li>
-                     </ul>
-                  </dd>
-               </dl>
+               <dt class="label">Summary</dt>
+               <dd>Generate metadata RDF for operation suitable for inclusion in SVG</dd>
+               <dt class="label">Signature</dt>
+               <dd>
+                  <div class="proto">
+              <code class="function">ex-graphviz:rdf</code>( <code class="arg">title</code>
+              <code class="as">&nbsp;as&nbsp;</code>
+              <code class="type">xs:string</code>, <code class="arg">ver</code>
+              <code class="as">&nbsp;as&nbsp;</code>
+              <code class="type">xs:string</code> )<code class="as">&nbsp;as&nbsp;</code>
+              <code class="return-type">element(svg:metadata)</code>
+            </div>
+               </dd>
+               <dt class="label">Parameters</dt>
+               <dd>
+                  <ul>
+                     <li>title
+                        			as
+                        			xs:string
+                     </li>
+                     <li>ver
+                        			as
+                        			xs:string
+                     </li>
+                  </ul>
+               </dd>
+               <dt class="label">Return</dt>
+               <dd>
+                  <ul>
+                     <li>element(svg:metadata)</li>
+                  </ul>
+               </dd>
+            </div>
+            <div id="ex-graphviz:to-svg">
+               <h4>
+            <a href="#ex-graphviz:to-svg">ex-graphviz:to-svg</a>
+          </h4>
+               <dt class="label">Summary</dt>
+               <dd>Layout graph in the DOT language and return as SVG</dd>
+               <dt class="label">Signature</dt>
+               <dd>
+                  <div class="proto">
+              <code class="function">ex-graphviz:to-svg</code>( <code class="arg">dot</code>
+              <code class="as">&nbsp;as&nbsp;</code>
+              <code class="type">xs:string</code> )<code class="as">&nbsp;as&nbsp;</code>
+              <code class="return-type">document-node()</code>
+            </div>
+                  <div class="proto">
+              <code class="function">ex-graphviz:to-svg</code>( <code class="arg">dot</code>
+              <code class="as">&nbsp;as&nbsp;</code>
+              <code class="type">xs:string</code>, <code class="arg">params</code>
+              <code class="as">&nbsp;as&nbsp;</code>
+              <code class="type">xs:string</code> )<code class="as">&nbsp;as&nbsp;</code>
+              <code class="return-type">document-node()</code>
+            </div>
+               </dd>
+               <dt class="label">Parameters</dt>
+               <dd>
+                  <ul>
+                     <li>dot
+                        			as
+                        			xs:string
+                     </li>
+                  </ul>
+               </dd>
+               <dt class="label">Return</dt>
+               <dd>
+                  <ul>
+                     <li>document-node(): svg document</li>
+                  </ul>
+               </dd>
             </div>
          </div>
          <div id="namespaces">
@@ -625,138 +653,10 @@ td {
           <i></i>
                							|
                							generated at
-               							2017-03-12T22:54:05.305Z
+               							2017-03-17T10:46:51.519Z
             </p>
          </div>
       </div>
-      <nav id="toc">
-         <div>
-        <a href="..">↰</a>http://expkg-zone58.github.io/ex-graphviz
-         </div>
-         <h2>
-        <a id="contents"></a>
-            				Table of Contents
-            			
-         </h2>
-         <ol class="toc">
-            <li>
-          <a href="#main">
-            <span class="secno">1 </span>
-            <span class="content">Introduction</span>
-          </a>
-        </li>
-            <li>
-               <ol class="toc">
-                  <li>
-              <a href="#variables">
-                <span class="secno">2 </span>
-                <span class="content">Variables</span>
-              </a>
-              <ol class="toc">
-                        <li>
-                  <a href="#$ex-graphviz:dotpath">
-                    <span class="secno">
-                                 												2.
-                                 												1</span>
-                    <span class="content">$ex-graphviz:dotpath</span>
-                  </a>
-                </li>
-                        <li>
-                  <a href="#$ex-graphviz:empty">
-                    <span class="secno">
-                                 												2.
-                                 												2</span>
-                    <span class="content">$ex-graphviz:empty</span>
-                  </a>
-                </li>
-                        <li>
-                  <a href="#$ex-graphviz:tmpdir">
-                    <span class="secno">
-                                 												2.
-                                 												3</span>
-                    <span class="content">$ex-graphviz:tmpdir</span>
-                  </a>
-                </li>
-                     </ol>
-                  </li>
-               </ol>
-            </li>
-            <li>
-               <ol class="toc">
-                  <li>
-              <a href="#functions">
-                <span class="secno">3 </span>
-                <span class="content">Functions</span>
-              </a>
-              <ol class="toc">
-                        <li>
-                  <a href="#autosize#1">
-                    <span class="secno">
-                                 												3.
-                                 												1</span>
-                    <span class="content">autosize#1</span>
-                  </a>
-                </li>
-                        <li>
-                  <a href="#dot-execute#2">
-                    <span class="secno">
-                                 												3.
-                                 												2</span>
-                    <span class="content">dot-execute#2</span>
-                  </a>
-                </li>
-                        <li>
-                  <a href="#dot-executeb#2">
-                    <span class="secno">
-                                 												3.
-                                 												3</span>
-                    <span class="content">dot-executeb#2</span>
-                  </a>
-                </li>
-                        <li>
-                  <a href="#dot-svg#1">
-                    <span class="secno">
-                                 												3.
-                                 												4</span>
-                    <span class="content">dot-svg#1</span>
-                  </a>
-                </li>
-                        <li>
-                  <a href="#rdf#2">
-                    <span class="secno">
-                                 												3.
-                                 												5</span>
-                    <span class="content">rdf#2</span>
-                  </a>
-                </li>
-                        <li>
-                  <a href="#to-svg#1">
-                    <span class="secno">
-                                 												3.
-                                 												6</span>
-                    <span class="content">to-svg#1</span>
-                  </a>
-                </li>
-                        <li>
-                  <a href="#to-svg#2">
-                    <span class="secno">
-                                 												3.
-                                 												7</span>
-                    <span class="content">to-svg#2</span>
-                  </a>
-                </li>
-                     </ol>
-                  </li>
-               </ol>
-            </li>
-            <li>
-          <a href="#namespaces">
-            <span class="secno">4 </span>
-            <span class="content">Namespaces</span>
-          </a>
-        </li>
-         </ol>
-      </nav>
     <script type="application/javascript">
 					window.onload = function(){ prettyPrint(); }
 				</script>

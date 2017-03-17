@@ -284,11 +284,11 @@ td {
                     table.index {
                     border-bottom:2px !important ;
                     }</style>
-    <script src="lib/prettify.js" type="text/javascript"> </script>
-    <script src="lib/lang-xq.js" type="text/javascript"> </script>
     <link rel="stylesheet" type="text/css" href="../resources/base.css">
       <link rel="stylesheet" type="text/css" href="lib/prettify.css">
-   </head>
+    <script src="lib/prettify.js" type="text/javascript"> </script>
+    <script src="lib/lang-xq.js" type="text/javascript"> </script>
+  </head>
    <body class="home" id="top">
       <div id="main">
          <h1>
@@ -313,6 +313,110 @@ td {
                		https://lists.w3.org/Archives/Public/public-expath/2015Feb/att-0003/xparse.html, uses, basex, inspect:functions
             </dd>
          </dl>
+         <nav id="toc">
+            <div>
+          <a href="..">↰</a>http://expath.org/ns/xparse
+            </div>
+            <h2>
+          <a id="contents"></a>
+               				Table of Contents
+               			
+            </h2>
+            <ol class="toc">
+               <li>
+            <a href="#main">
+              <span class="secno">1 </span>
+              <span class="content">Introduction</span>
+            </a>
+          </li>
+               <li>
+                  <ol class="toc">
+                     <li>
+                <a href="#variables">
+                  <span class="secno">2 </span>
+                  <span class="content">Variables</span>
+                </a>
+                <ol class="toc">
+                           <li>
+                    <a href="#$xp:default-opts">
+                      <span class="secno">
+                                    												2.
+                                    												1</span>
+                      <span class="content">$xp:default-opts</span>
+                    </a>
+                  </li>
+                           <li>
+                    <a href="#$xp:parsers">
+                      <span class="secno">
+                                    												2.
+                                    												2</span>
+                      <span class="content">$xp:parsers</span>
+                    </a>
+                  </li>
+                        </ol>
+                     </li>
+                  </ol>
+               </li>
+               <li>
+                  <ol class="toc">
+                     <li>
+                <a href="#functions">
+                  <span class="secno">3 </span>
+                  <span class="content">Functions</span>
+                </a>
+                <ol class="toc">
+                           <li>
+                    <a href="#xp:flatten">
+                      <span class="secno">
+                                    												3.
+                                    												1</span>
+                      <span class="content">xp:flatten</span>
+                    </a>
+                  </li>
+                           <li>
+                    <a href="#xp:get-parser">
+                      <span class="secno">
+                                    												3.
+                                    												2</span>
+                      <span class="content">xp:get-parser</span>
+                    </a>
+                  </li>
+                           <li>
+                    <a href="#xp:parse">
+                      <span class="secno">
+                                    												3.
+                                    												3</span>
+                      <span class="content">xp:parse</span>
+                    </a>
+                  </li>
+                           <li>
+                    <a href="#xp:to-expression">
+                      <span class="secno">
+                                    												3.
+                                    												4</span>
+                      <span class="content">xp:to-expression</span>
+                    </a>
+                  </li>
+                           <li>
+                    <a href="#xp:version">
+                      <span class="secno">
+                                    												3.
+                                    												5</span>
+                      <span class="content">xp:version</span>
+                    </a>
+                  </li>
+                        </ol>
+                     </li>
+                  </ol>
+               </li>
+               <li>
+            <a href="#namespaces">
+              <span class="secno">4 </span>
+              <span class="content">Namespaces</span>
+            </a>
+          </li>
+            </ol>
+         </nav>
          <div id="variables">
             <h3>
           <a href="#variables">Variables</a>
@@ -344,239 +448,178 @@ td {
             <h3>
           <a href="#functions">Functions</a>
         </h3>
-            <div id="xp:parse#1">
+            <div id="xp:flatten">
                <h4>
-            <a href="#xp:parse#1">xp:parse#1</a>
+            <a href="#xp:flatten">xp:flatten</a>
           </h4>
-               <dl>
-                  <dt class="label">Summary</dt>
-                  <dd>The xp:parse function returns a parse tree for an expression.</dd>
-                  <dt class="label">Signature</dt>
-                  <dd>
-                     <div class="proto">declare function xp:parse($exp as xs:string) as element()</div>
-                  </dd>
-                  <dt class="label">Parameters</dt>
-                  <dd>
-                     <ul>
-                        <li>exp
-                           			as
-                           			xs:string
-                        </li>
-                     </ul>
-                  </dd>
-                  <dt class="label">Return</dt>
-                  <dd>
-                     <ul>
-                        <li>element(): parse tree</li>
-                     </ul>
-                  </dd>
-               </dl>
+               <dt class="label">Summary</dt>
+               <dd>simplify by omitting elements with only one child</dd>
+               <dt class="label">Signature</dt>
+               <dd>
+                  <div class="proto">
+              <code class="function">xp:flatten</code>( <code class="arg">input</code>
+              <code class="as">&nbsp;as&nbsp;</code>
+              <code class="type">element()</code> )<code class="as">&nbsp;as&nbsp;</code>
+              <code class="return-type">element()</code>
             </div>
-            <div id="xp:parse#2">
-               <h4>
-            <a href="#xp:parse#2">xp:parse#2</a>
-          </h4>
-               <dl>
-                  <dt class="label">Summary</dt>
-                  <dd>The xp:parse function returns a parse tree for an expression.</dd>
-                  <dt class="label">Signature</dt>
-                  <dd>
-                     <div class="proto">declare function xp:parse($exp as xs:string, $options as map(*)) as element()</div>
-                  </dd>
-                  <dt class="label">Parameters</dt>
-                  <dd>
-                     <ul>
-                        <li>exp
-                           			as
-                           			xs:string sttring to parse
-                        </li>
-                        <li>options
-                           			as
-                           			map(*) is a map of control options
-                        </li>
-                     </ul>
-                  </dd>
-                  <dt class="label">Return</dt>
-                  <dd>
-                     <ul>
-                        <li>element(): parse tree</li>
-                     </ul>
-                  </dd>
-               </dl>
+               </dd>
+               <dt class="label">Parameters</dt>
+               <dd>
+                  <ul>
+                     <li>input
+                        			as
+                        			element()
+                     </li>
+                  </ul>
+               </dd>
+               <dt class="label">Return</dt>
+               <dd>
+                  <ul>
+                     <li>element()</li>
+                  </ul>
+               </dd>
             </div>
-            <div id="xp:to-expression#1">
+            <div id="xp:get-parser">
                <h4>
-            <a href="#xp:to-expression#1">xp:to-expression#1</a>
+            <a href="#xp:get-parser">xp:get-parser</a>
           </h4>
-               <dl>
-                  <dt class="label">Summary</dt>
-                  <dd>The xp:to-expression function returns an expression tree corresponding to a given
-                     parse tree.
-                  </dd>
-                  <dt class="label">Signature</dt>
-                  <dd>
-                     <div class="proto">declare function xp:to-expression($in as element()) as xs:string</div>
-                  </dd>
-                  <dt class="label">Parameters</dt>
-                  <dd>
-                     <ul>
-                        <li>in
-                           			as
-                           			element()
-                        </li>
-                     </ul>
-                  </dd>
-                  <dt class="label">Return</dt>
-                  <dd>
-                     <ul>
-                        <li>xs:string</li>
-                     </ul>
-                  </dd>
-               </dl>
+               <dt class="label">Summary</dt>
+               <dd>Select parser function for opts</dd>
+               <dt class="label">Signature</dt>
+               <dd>
+                  <div class="proto">
+              <code class="function">xp:get-parser</code>( <code class="arg">opts</code>
+              <code class="as">&nbsp;as&nbsp;</code>
+              <code class="type">map(*)</code> )<code class="as">&nbsp;as&nbsp;</code>
+              <code class="return-type">function(*)</code>
             </div>
-            <div id="xp:to-expression#2">
-               <h4>
-            <a href="#xp:to-expression#2">xp:to-expression#2</a>
-          </h4>
-               <dl>
-                  <dt class="label">Summary</dt>
-                  <dd>The xp:to-expression function returns an expression tree corresponding to a given
-                     parse tree.
-                  </dd>
-                  <dt class="label">Signature</dt>
-                  <dd>
-                     <div class="proto">declare function xp:to-expression($in as element(), $options as map(*)) as xs:string</div>
-                  </dd>
-                  <dt class="label">Parameters</dt>
-                  <dd>
-                     <ul>
-                        <li>in
-                           			as
-                           			element()
-                        </li>
-                        <li>options
-                           			as
-                           			map(*)
-                        </li>
-                     </ul>
-                  </dd>
-                  <dt class="label">Return</dt>
-                  <dd>
-                     <ul>
-                        <li>xs:string</li>
-                     </ul>
-                  </dd>
-               </dl>
+               </dd>
+               <dt class="label">Parameters</dt>
+               <dd>
+                  <ul>
+                     <li>opts
+                        			as
+                        			map(*)
+                     </li>
+                  </ul>
+               </dd>
+               <dt class="label">Return</dt>
+               <dd>
+                  <ul>
+                     <li>function(*): parser function as function($xq as xs:string)</li>
+                  </ul>
+               </dd>
             </div>
-            <div id="xp:flatten#1">
+            <div id="xp:parse">
                <h4>
-            <a href="#xp:flatten#1">xp:flatten#1</a>
+            <a href="#xp:parse">xp:parse</a>
           </h4>
-               <dl>
-                  <dt class="label">Summary</dt>
-                  <dd>simplify by omitting elements with only one child</dd>
-                  <dt class="label">Signature</dt>
-                  <dd>
-                     <div class="proto">declare function xp:flatten($input as element()) as element()</div>
-                  </dd>
-                  <dt class="label">Parameters</dt>
-                  <dd>
-                     <ul>
-                        <li>input
-                           			as
-                           			element()
-                        </li>
-                     </ul>
-                  </dd>
-                  <dt class="label">Return</dt>
-                  <dd>
-                     <ul>
-                        <li>element()</li>
-                     </ul>
-                  </dd>
-               </dl>
+               <dt class="label">Summary</dt>
+               <dd>The xp:parse function returns a parse tree for an expression.</dd>
+               <dt class="label">Signature</dt>
+               <dd>
+                  <div class="proto">
+              <code class="function">xp:parse</code>( <code class="arg">exp</code>
+              <code class="as">&nbsp;as&nbsp;</code>
+              <code class="type">xs:string</code> )<code class="as">&nbsp;as&nbsp;</code>
+              <code class="return-type">element()</code>
             </div>
-            <div id="xp:version#1">
-               <h4>
-            <a href="#xp:version#1">xp:version#1</a>
-          </h4>
-               <dl>
-                  <dt class="label">Summary</dt>
-                  <dd></dd>
-                  <dt class="label">Signature</dt>
-                  <dd>
-                     <div class="proto">declare function xp:version($opts as map(*)) as map(*)</div>
-                  </dd>
-                  <dt class="label">Parameters</dt>
-                  <dd>
-                     <ul>
-                        <li>opts
-                           			as
-                           			map(*)
-                        </li>
-                     </ul>
-                  </dd>
-                  <dt class="label">Return</dt>
-                  <dd>
-                     <ul>
-                        <li>map(*): parser function</li>
-                     </ul>
-                  </dd>
-               </dl>
+                  <div class="proto">
+              <code class="function">xp:parse</code>( <code class="arg">exp</code>
+              <code class="as">&nbsp;as&nbsp;</code>
+              <code class="type">xs:string</code>, <code class="arg">options</code>
+              <code class="as">&nbsp;as&nbsp;</code>
+              <code class="type">map(*)</code> )<code class="as">&nbsp;as&nbsp;</code>
+              <code class="return-type">element()</code>
             </div>
-            <div id="xp:java-fixup#1">
-               <h4>
-            <a href="#xp:java-fixup#1">xp:java-fixup#1</a>
-          </h4>
-               <dl>
-                  <dt class="label">Signature</dt>
-                  <dd>
-                     <div class="proto">declare %private function xp:java-fixup($name as xs:string) as xs:string</div>
-                  </dd>
-                  <dt class="label">Parameters</dt>
-                  <dd>
-                     <ul>
-                        <li>name
-                           			as
-                           			xs:string
-                        </li>
-                     </ul>
-                  </dd>
-                  <dt class="label">Return</dt>
-                  <dd>
-                     <ul>
-                        <li>xs:string</li>
-                     </ul>
-                  </dd>
-               </dl>
+               </dd>
+               <dt class="label">Parameters</dt>
+               <dd>
+                  <ul>
+                     <li>exp
+                        			as
+                        			xs:string
+                     </li>
+                  </ul>
+               </dd>
+               <dt class="label">Return</dt>
+               <dd>
+                  <ul>
+                     <li>element(): parse tree</li>
+                  </ul>
+               </dd>
             </div>
-            <div id="xp:get-parser#1">
+            <div id="xp:to-expression">
                <h4>
-            <a href="#xp:get-parser#1">xp:get-parser#1</a>
+            <a href="#xp:to-expression">xp:to-expression</a>
           </h4>
-               <dl>
-                  <dt class="label">Summary</dt>
-                  <dd>Select parser function for opts</dd>
-                  <dt class="label">Signature</dt>
-                  <dd>
-                     <div class="proto">declare function xp:get-parser($opts as map(*)) as function(*)</div>
-                  </dd>
-                  <dt class="label">Parameters</dt>
-                  <dd>
-                     <ul>
-                        <li>opts
-                           			as
-                           			map(*)
-                        </li>
-                     </ul>
-                  </dd>
-                  <dt class="label">Return</dt>
-                  <dd>
-                     <ul>
-                        <li>function(*): parser function as function($xq as xs:string)</li>
-                     </ul>
-                  </dd>
-               </dl>
+               <dt class="label">Summary</dt>
+               <dd>The xp:to-expression function returns an expression tree corresponding to a given
+                  parse tree.
+               </dd>
+               <dt class="label">Signature</dt>
+               <dd>
+                  <div class="proto">
+              <code class="function">xp:to-expression</code>( <code class="arg">in</code>
+              <code class="as">&nbsp;as&nbsp;</code>
+              <code class="type">element()</code> )<code class="as">&nbsp;as&nbsp;</code>
+              <code class="return-type">xs:string</code>
+            </div>
+                  <div class="proto">
+              <code class="function">xp:to-expression</code>( <code class="arg">in</code>
+              <code class="as">&nbsp;as&nbsp;</code>
+              <code class="type">element()</code>, <code class="arg">options</code>
+              <code class="as">&nbsp;as&nbsp;</code>
+              <code class="type">map(*)</code> )<code class="as">&nbsp;as&nbsp;</code>
+              <code class="return-type">xs:string</code>
+            </div>
+               </dd>
+               <dt class="label">Parameters</dt>
+               <dd>
+                  <ul>
+                     <li>in
+                        			as
+                        			element()
+                     </li>
+                  </ul>
+               </dd>
+               <dt class="label">Return</dt>
+               <dd>
+                  <ul>
+                     <li>xs:string</li>
+                  </ul>
+               </dd>
+            </div>
+            <div id="xp:version">
+               <h4>
+            <a href="#xp:version">xp:version</a>
+          </h4>
+               <dt class="label">Summary</dt>
+               <dd></dd>
+               <dt class="label">Signature</dt>
+               <dd>
+                  <div class="proto">
+              <code class="function">xp:version</code>( <code class="arg">opts</code>
+              <code class="as">&nbsp;as&nbsp;</code>
+              <code class="type">map(*)</code> )<code class="as">&nbsp;as&nbsp;</code>
+              <code class="return-type">map(*)</code>
+            </div>
+               </dd>
+               <dt class="label">Parameters</dt>
+               <dd>
+                  <ul>
+                     <li>opts
+                        			as
+                        			map(*)
+                     </li>
+                  </ul>
+               </dd>
+               <dt class="label">Return</dt>
+               <dd>
+                  <ul>
+                     <li>map(*): parser function</li>
+                  </ul>
+               </dd>
             </div>
          </div>
          <div id="namespaces">
@@ -613,138 +656,10 @@ td {
           <i></i>
                							|
                							generated at
-               							2017-03-12T22:54:05.124Z
+               							2017-03-17T10:46:51.367Z
             </p>
          </div>
       </div>
-      <nav id="toc">
-         <div>
-        <a href="..">↰</a>http://expath.org/ns/xparse
-         </div>
-         <h2>
-        <a id="contents"></a>
-            				Table of Contents
-            			
-         </h2>
-         <ol class="toc">
-            <li>
-          <a href="#main">
-            <span class="secno">1 </span>
-            <span class="content">Introduction</span>
-          </a>
-        </li>
-            <li>
-               <ol class="toc">
-                  <li>
-              <a href="#variables">
-                <span class="secno">2 </span>
-                <span class="content">Variables</span>
-              </a>
-              <ol class="toc">
-                        <li>
-                  <a href="#$xp:default-opts">
-                    <span class="secno">
-                                 												2.
-                                 												1</span>
-                    <span class="content">$xp:default-opts</span>
-                  </a>
-                </li>
-                        <li>
-                  <a href="#$xp:parsers">
-                    <span class="secno">
-                                 												2.
-                                 												2</span>
-                    <span class="content">$xp:parsers</span>
-                  </a>
-                </li>
-                     </ol>
-                  </li>
-               </ol>
-            </li>
-            <li>
-               <ol class="toc">
-                  <li>
-              <a href="#functions">
-                <span class="secno">3 </span>
-                <span class="content">Functions</span>
-              </a>
-              <ol class="toc">
-                        <li>
-                  <a href="#xp:flatten#1">
-                    <span class="secno">
-                                 												3.
-                                 												1</span>
-                    <span class="content">xp:flatten#1</span>
-                  </a>
-                </li>
-                        <li>
-                  <a href="#xp:get-parser#1">
-                    <span class="secno">
-                                 												3.
-                                 												2</span>
-                    <span class="content">xp:get-parser#1</span>
-                  </a>
-                </li>
-                        <li>
-                  <a href="#xp:java-fixup#1">
-                    <span class="secno">
-                                 												3.
-                                 												3</span>
-                    <span class="content">xp:java-fixup#1</span>
-                  </a>
-                </li>
-                        <li>
-                  <a href="#xp:parse#1">
-                    <span class="secno">
-                                 												3.
-                                 												4</span>
-                    <span class="content">xp:parse#1</span>
-                  </a>
-                </li>
-                        <li>
-                  <a href="#xp:parse#2">
-                    <span class="secno">
-                                 												3.
-                                 												5</span>
-                    <span class="content">xp:parse#2</span>
-                  </a>
-                </li>
-                        <li>
-                  <a href="#xp:to-expression#1">
-                    <span class="secno">
-                                 												3.
-                                 												6</span>
-                    <span class="content">xp:to-expression#1</span>
-                  </a>
-                </li>
-                        <li>
-                  <a href="#xp:to-expression#2">
-                    <span class="secno">
-                                 												3.
-                                 												7</span>
-                    <span class="content">xp:to-expression#2</span>
-                  </a>
-                </li>
-                        <li>
-                  <a href="#xp:version#1">
-                    <span class="secno">
-                                 												3.
-                                 												8</span>
-                    <span class="content">xp:version#1</span>
-                  </a>
-                </li>
-                     </ol>
-                  </li>
-               </ol>
-            </li>
-            <li>
-          <a href="#namespaces">
-            <span class="secno">4 </span>
-            <span class="content">Namespaces</span>
-          </a>
-        </li>
-         </ol>
-      </nav>
     <script type="application/javascript">
 					window.onload = function(){ prettyPrint(); }
 				</script>
