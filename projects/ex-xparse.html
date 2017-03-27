@@ -285,9 +285,9 @@ td {
                     border-bottom:2px !important ;
                     }</style>
     <link rel="stylesheet" type="text/css" href="../resources/base.css">
-      <link rel="stylesheet" type="text/css" href="lib/prettify.css">
-    <script src="lib/prettify.js" type="text/javascript"> </script>
-    <script src="lib/lang-xq.js" type="text/javascript"> </script>
+      <link rel="stylesheet" type="text/css" href="../resources/prettify.css">
+    <script src="../resources/prettify.js" type="text/javascript"> </script>
+    <script src="../resources/lang-xq.js" type="text/javascript"> </script>
   </head>
    <body class="home" id="top">
       <div id="main">
@@ -305,10 +305,8 @@ td {
                XQuery ([XQuery3.0]) into XML trees, and in the reverse direction serialising these
                trees into equivalent string expressions.
             </dd>
-            <dt>Rest</dt>
-            <dd>http://expath.org/ns/xparsexparse.xqmThis module is designed to specify a small library of functions for parsing expressions
-               in XPath ([XPath3.0]) or XQuery ([XQuery3.0]) into XML trees, and in the reverse direction
-               serialising these trees into equivalent string expressions.
+            <dt>Tags</dt>
+            <dd>
                		See also:
                		https://lists.w3.org/Archives/Public/public-expath/2015Feb/att-0003/xparse.html, uses, basex, inspect:functions
             </dd>
@@ -421,17 +419,6 @@ td {
             <h3>
           <a href="#variables">Variables</a>
         </h3>
-            <div id="$xp:parsers">
-               <h4>
-            <a href="#$xp:parsers">$xp:parsers</a>
-          </h4>
-               <dl>
-                  <dt class="label">Summary</dt>
-                  <dd>The available parsers</dd>
-                  <dt class="label">Type</dt>
-                  <dd>element(xp:parser)*</dd>
-               </dl>
-            </div>
             <div id="$xp:default-opts">
                <h4>
             <a href="#$xp:default-opts">$xp:default-opts</a>
@@ -441,6 +428,17 @@ td {
                   <dd>default options for parse function.</dd>
                   <dt class="label">Type</dt>
                   <dd>map(*)</dd>
+               </dl>
+            </div>
+            <div id="$xp:parsers">
+               <h4>
+            <a href="#$xp:parsers">$xp:parsers</a>
+          </h4>
+               <dl>
+                  <dt class="label">Summary</dt>
+                  <dd>The available parsers</dd>
+                  <dt class="label">Type</dt>
+                  <dd>element(xp:parser)*</dd>
                </dl>
             </div>
          </div>
@@ -626,7 +624,7 @@ td {
             <h3>
           <a href="#namespaces">Namespaces</a>
         </h3>
-            <p>The following namespace are defined:</p>
+            <p>The following namespaces are defined:</p>
             <table style="float:none">
                <thead>
                   <tr>
@@ -656,7 +654,7 @@ td {
           <i></i>
                							|
                							generated at
-               							2017-03-17T10:46:51.367Z
+               							2017-03-26T22:46:40.108+01:00
             </p>
          </div>
       </div>

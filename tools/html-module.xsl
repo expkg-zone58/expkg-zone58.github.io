@@ -35,10 +35,10 @@
 				</style>
 
 				<link rel="stylesheet" type="text/css" href="{$css}" />
-				<link rel="stylesheet" type="text/css" href="lib/prettify.css" />
+				<link rel="stylesheet" type="text/css" href="../resources/prettify.css" />
 
-				<script src="lib/prettify.js" type="text/javascript">&#160;</script>
-				<script src="lib/lang-xq.js" type="text/javascript">&#160;</script>
+				<script src="../resources/prettify.js" type="text/javascript">&#160;</script>
+				<script src="../resources/lang-xq.js" type="text/javascript">&#160;</script>
 			</head>
 			<body class="home" id="top">
 				<div id="main">
@@ -86,9 +86,10 @@
 		</h1>
 		<dl>
 			<xsl:apply-templates select="doc:comment/doc:description" />
-			<dt>Rest</dt>
+			<dt>Tags</dt>
 			<dd>
-				<xsl:apply-templates select="*[not(name(.) eq 'doc:uri')]" />
+				<xsl:apply-templates
+					select="doc:comment/* except doc:comment/doc:description" />
 			</dd>
 		</dl>
 	</xsl:template>
@@ -98,7 +99,7 @@
 			<h3>
 				<a href="#namespaces">Namespaces</a>
 			</h3>
-			<p>The following namespace are defined:</p>
+			<p>The following namespaces are defined:</p>
 			<table style="float:none">
 				<thead>
 					<tr>
@@ -128,7 +129,10 @@
 			<h3>
 				<a href="#variables">Variables</a>
 			</h3>
-			<xsl:apply-templates />
+			<xsl:for-each select="$vars">
+				<xsl:sort select="lower-case(doc:name)" />
+				<xsl:apply-templates select="." />
+			</xsl:for-each>
 		</div>
 	</xsl:template>
 
@@ -179,13 +183,13 @@
 	<xsl:template name="function">
 		<xsl:param name="fun" as="element(doc:function)*" />
 		<xsl:variable name="id" select="$fun[1]/doc:name" />
-		<xsl:variable name="funs" >
-		  <xsl:for-each select="fun">
-		      <xsl:sort select="@arity" data-type="number"/>
-		      <xsl:copy-of select="."/>
-		      </xsl:for-each>	  
+		<xsl:variable name="funs">
+			<xsl:for-each select="fun">
+				<xsl:sort select="@arity" data-type="number" />
+				<xsl:copy-of select="." />
+			</xsl:for-each>
 		</xsl:variable>
-		
+
 		<div id="{$id}">
 			<h4>
 				<a href="#{$id}">
@@ -216,14 +220,20 @@
 					<xsl:value-of select="doc:name" />
 				</code>
 				<code class="as">&#160;as&#160;</code>
-				<code class="type"><xsl:value-of select="doc:type" /></code>
+				<code class="type">
+					<xsl:value-of select="doc:type" />
+					<xsl:value-of select="doc:type/@occurrence/string()" />
+				</code>
 				<xsl:if test="position() != last()">
 					<xsl:text>, </xsl:text>
 				</xsl:if>
 			</xsl:for-each>
 			<xsl:text> )</xsl:text>
 			<code class="as">&#160;as&#160;</code>
-			<code class="return-type"><xsl:value-of select="doc:return/doc:type" /></code>
+			<code class="return-type">
+				<xsl:value-of select="doc:return/doc:type" />
+				<xsl:value-of select="doc:return/doc:type/@occurrence/string()" />
+			</code>
 		</div>
 	</xsl:template>
 
@@ -259,7 +269,7 @@
 					<xsl:value-of select="doc:type/@occurrence" />
 					<xsl:for-each select="../doc:comment/doc:return">
 						<xsl:text>: </xsl:text>
-						<xsl:value-of select="normalize-space(.)" />
+						<xsl:copy-of select="node()|text()" />
 					</xsl:for-each>
 				</li>
 			</ul>
@@ -271,16 +281,16 @@
 	<xsl:template match="doc:error">
 		<dt class="label">Error</dt>
 		<dd>
-			<xsl:value-of select="normalize-space(.)" />
+			<xsl:copy-of select="node()|text()" />
 		</dd>
 	</xsl:template>
-	
-<xsl:template match="doc:annotations">
-ANNOT
-</xsl:template>
+
+	<xsl:template match="doc:annotations">
+		ANNOT
+	</xsl:template>
 
 	<xsl:template match="doc:comment">
-		<xsl:apply-templates mode="custom" />
+		<xsl:apply-templates />
 	</xsl:template>
 
 	<xsl:template match="doc:description">
@@ -289,52 +299,29 @@ ANNOT
 			<xsl:copy-of select="node()|text()" />
 		</dd>
 	</xsl:template>
-	<!--handle html in comments -->
-	<xsl:template match="*:h1" mode="custom">
-		<h1>
-			<xsl:apply-templates mode="custom" />
-		</h1>
-	</xsl:template>
 
-	<xsl:template match="*:ul" mode="custom">
-		<ul>
-			<xsl:apply-templates mode="custom" />
-		</ul>
-	</xsl:template>
-
-	<xsl:template match="*:li" mode="custom">
-		<li>
-			<xsl:apply-templates mode="custom" />
-		</li>
-	</xsl:template>
-
-	<xsl:template match="*:p" mode="custom">
-		<p>
-			<xsl:apply-templates mode="custom" />
-		</p>
-	</xsl:template>
-
-	<xsl:template match="*:pre" mode="custom">
-		<pre class="prettyprint lang-xq">
-			<xsl:value-of select="." />
-		</pre>
-	</xsl:template>
-
-	<xsl:template match="doc:author" mode="custom #default">
+	<xsl:template match="doc:author">
 		<p>
 			Author:
 			<xsl:value-of select="." />
 		</p>
 	</xsl:template>
 
-	<xsl:template match="doc:version" mode="custom #default">
+	<xsl:template match="doc:version">
 		<p>
 			Version:
 			<xsl:value-of select="." />
 		</p>
 	</xsl:template>
 
-	<xsl:template match="doc:see" mode="custom">
+	<xsl:template match="doc:custom">
+		<p>
+			<xsl:value-of select="@tag" />
+			:
+			<xsl:value-of select="." />
+		</p>
+	</xsl:template>
+	<xsl:template match="doc:see">
 		See also:
 		<xsl:for-each select="tokenize(.,'[ \t\r\n,]+')[. ne '']">
 			<xsl:if test="position() ne 1">
@@ -359,14 +346,6 @@ ANNOT
 			</xsl:choose>
 		</xsl:for-each>
 	</xsl:template>
-
-	<xsl:template match="doc:param" mode="custom" />
-	<xsl:template match="doc:return" mode="custom" />
-
-	<!--xsl:template match="doc:custom" mode="custom"> <xsl:apply-templates 
-		select="."/> </xsl:template> <xsl:template match="doc:param" mode="custom"> 
-		<xsl:apply-templates select="."/> </xsl:template> <xsl:template match="doc:version" 
-		mode="custom"> <xsl:apply-templates select="."/> </xsl:template -->
 
 	<xsl:template match="doc:control" />
 

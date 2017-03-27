@@ -3,7 +3,7 @@
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <meta http-equiv="Generator" content="xquerydoc - https://github.com/xquery/xquerydoc">
-      <title>expkg-zone58.metadata.audio
+      <title>expkg-zone58:audio.metadata
          					- xqDoc
          				
       </title>
@@ -285,14 +285,14 @@ td {
                     border-bottom:2px !important ;
                     }</style>
     <link rel="stylesheet" type="text/css" href="../resources/base.css">
-      <link rel="stylesheet" type="text/css" href="lib/prettify.css">
-    <script src="lib/prettify.js" type="text/javascript"> </script>
-    <script src="lib/lang-xq.js" type="text/javascript"> </script>
+      <link rel="stylesheet" type="text/css" href="../resources/prettify.css">
+    <script src="../resources/prettify.js" type="text/javascript"> </script>
+    <script src="../resources/lang-xq.js" type="text/javascript"> </script>
   </head>
    <body class="home" id="top">
       <div id="main">
          <h1>
-        <span class="namespace">expkg-zone58.metadata.audio</span>
+        <span class="namespace">expkg-zone58:audio.metadata</span>
             			&nbsp;
             			library
             			module
@@ -300,9 +300,14 @@ td {
          </h1>
          <dl>
             <dt class="label">Summary</dt>
-            <dd>Extract mp3 tags using jaudiotagger</dd>
-            <dt>Rest</dt>
-            <dd>expkg-zone58.metadata.audioaudiotagger.xqmExtract mp3 tags using jaudiotagger
+            <dd>Extract audio tags using the  
+               <a xmlns="" xmlns:xqdoc="http://www.xqdoc.org/1.0" href="https://bitbucket.org/ijabz/jaudiotagger">jaudiotagger</a> library.
+               jaudiotagger supports Mp3, Mp4 (Mp4 audio, M4a and M4p audio) Ogg Vorbis, Flac and
+               Wma, 
+               there is  limited support for Wav and Real formats.
+            </dd>
+            <dt>Tags</dt>
+            <dd>
                		See also:
                		https://bitbucket.org/ijabz/jaudiotagger
                <p>
@@ -311,13 +316,17 @@ td {
                </p>
                <p>
                   			Version:
-                  			0.6.0
-               </p>apache 2
+                  			0.7.1
+               </p>
+               <p>licence
+                  			:
+                  			apache 2
+               </p>
             </dd>
          </dl>
          <nav id="toc">
             <div>
-          <a href="..">↰</a>expkg-zone58.metadata.audio
+          <a href="..">↰</a>expkg-zone58:audio.metadata
             </div>
             <h2>
           <a id="contents"></a>
@@ -338,16 +347,7 @@ td {
                   <span class="secno">2 </span>
                   <span class="content">Variables</span>
                 </a>
-                <ol class="toc">
-                           <li>
-                    <a href="#$tags:names">
-                      <span class="secno">
-                                    												2.
-                                    												1</span>
-                      <span class="content">$tags:names</span>
-                    </a>
-                  </li>
-                        </ol>
+                <ol class="toc"></ol>
                      </li>
                   </ol>
                </li>
@@ -360,27 +360,19 @@ td {
                 </a>
                 <ol class="toc">
                            <li>
-                    <a href="#tags:extract">
+                    <a href="#audiometa:extract">
                       <span class="secno">
                                     												3.
                                     												1</span>
-                      <span class="content">tags:extract</span>
+                      <span class="content">audiometa:extract</span>
                     </a>
                   </li>
                            <li>
-                    <a href="#tags:getFields">
+                    <a href="#audiometa:read">
                       <span class="secno">
                                     												3.
                                     												2</span>
-                      <span class="content">tags:getFields</span>
-                    </a>
-                  </li>
-                           <li>
-                    <a href="#tags:read">
-                      <span class="secno">
-                                    												3.
-                                    												3</span>
-                      <span class="content">tags:read</span>
+                      <span class="content">audiometa:read</span>
                     </a>
                   </li>
                         </ol>
@@ -399,109 +391,30 @@ td {
             <h3>
           <a href="#variables">Variables</a>
         </h3>
-            <div id="$tags:names">
-               <h4>
-            <a href="#$tags:names">$tags:names</a>
-          </h4>
-               <dl>
-                  <dt class="label">Type</dt>
-                  <dd>item()*</dd>
-               </dl>
-            </div>
          </div>
          <div id="functions">
             <h3>
           <a href="#functions">Functions</a>
         </h3>
-            <div id="tags:extract">
+            <div id="audiometa:extract">
                <h4>
-            <a href="#tags:extract">tags:extract</a>
-          </h4>
-               <dt class="label">Signature</dt>
-               <dd>
-                  <div class="proto">
-              <code class="function">tags:extract</code>( <code class="arg">f</code>
-              <code class="as">&nbsp;as&nbsp;</code>
-              <code class="type">xs:string</code> )<code class="as">&nbsp;as&nbsp;</code>
-              <code class="return-type">element()</code>
-            </div>
-               </dd>
-               <dt class="label">Parameters</dt>
-               <dd>
-                  <ul>
-                     <li>f
-                        			as
-                        			xs:string
-                     </li>
-                  </ul>
-               </dd>
-               <dt class="label">Return</dt>
-               <dd>
-                  <ul>
-                     <li>element()*</li>
-                  </ul>
-               </dd>
-            </div>
-            <div id="tags:getFields">
-               <h4>
-            <a href="#tags:getFields">tags:getFields</a>
-          </h4>
-               <dt class="label">Signature</dt>
-               <dd>
-                  <div class="proto">
-              <code class="function">tags:getFields</code>( <code class="arg">name</code>
-              <code class="as">&nbsp;as&nbsp;</code>
-              <code class="type">item()</code>, <code class="arg">tag</code>
-              <code class="as">&nbsp;as&nbsp;</code>
-              <code class="type">item()</code>, <code class="arg">f</code>
-              <code class="as">&nbsp;as&nbsp;</code>
-              <code class="type">function(xs:string, xs:string) as element()</code> )<code class="as">&nbsp;as&nbsp;</code>
-              <code class="return-type">element()</code>
-            </div>
-               </dd>
-               <dt class="label">Parameters</dt>
-               <dd>
-                  <ul>
-                     <li>name
-                        			as
-                        			item()*
-                     </li>
-                     <li>tag
-                        			as
-                        			item()*
-                     </li>
-                     <li>f
-                        			as
-                        			function(xs:string, xs:string) as element()
-                     </li>
-                  </ul>
-               </dd>
-               <dt class="label">Return</dt>
-               <dd>
-                  <ul>
-                     <li>element()*</li>
-                  </ul>
-               </dd>
-            </div>
-            <div id="tags:read">
-               <h4>
-            <a href="#tags:read">tags:read</a>
+            <a href="#audiometa:extract">audiometa:extract</a>
           </h4>
                <dt class="label">Summary</dt>
-               <dd>tag details from file name trapping all errors</dd>
+               <dd>Get tag details from audio file as a sequence.</dd>
                <dt class="label">Signature</dt>
                <dd>
                   <div class="proto">
-              <code class="function">tags:read</code>( <code class="arg">f</code>
+              <code class="function">audiometa:extract</code>( <code class="arg">file</code>
               <code class="as">&nbsp;as&nbsp;</code>
               <code class="type">xs:string</code> )<code class="as">&nbsp;as&nbsp;</code>
-              <code class="return-type">element(metadata)</code>
+              <code class="return-type">element()*</code>
             </div>
                </dd>
                <dt class="label">Parameters</dt>
                <dd>
                   <ul>
-                     <li>f
+                     <li>file
                         			as
                         			xs:string filepath of audio file
                      </li>
@@ -510,7 +423,46 @@ td {
                <dt class="label">Return</dt>
                <dd>
                   <ul>
-                     <li>element(metadata)</li>
+                     <li>element()*: 
+                        
+                        <code xmlns="" xmlns:xqdoc="http://www.xqdoc.org/1.0">&lt;tag dir=".." name=".."&gt;value&lt;tag....</code>
+                        
+                     </li>
+                  </ul>
+               </dd>
+            </div>
+            <div id="audiometa:read">
+               <h4>
+            <a href="#audiometa:read">audiometa:read</a>
+          </h4>
+               <dt class="label">Summary</dt>
+               <dd>Get tag details from audio file  trapping all errors.</dd>
+               <dt class="label">Signature</dt>
+               <dd>
+                  <div class="proto">
+              <code class="function">audiometa:read</code>( <code class="arg">file</code>
+              <code class="as">&nbsp;as&nbsp;</code>
+              <code class="type">xs:string</code> )<code class="as">&nbsp;as&nbsp;</code>
+              <code class="return-type">element(metadata)</code>
+            </div>
+               </dd>
+               <dt class="label">Parameters</dt>
+               <dd>
+                  <ul>
+                     <li>file
+                        			as
+                        			xs:string filepath of audio file
+                     </li>
+                  </ul>
+               </dd>
+               <dt class="label">Return</dt>
+               <dd>
+                  <ul>
+                     <li>element(metadata): 
+                        
+                        <code xmlns="" xmlns:xqdoc="http://www.xqdoc.org/1.0">&lt;metadata src=".."&gt;&lt;tag&gt;..</code>
+                        
+                     </li>
                   </ul>
                </dd>
             </div>
@@ -519,7 +471,7 @@ td {
             <h3>
           <a href="#namespaces">Namespaces</a>
         </h3>
-            <p>The following namespace are defined:</p>
+            <p>The following namespaces are defined:</p>
             <table style="float:none">
                <thead>
                   <tr>
@@ -531,6 +483,10 @@ td {
                   <tr>
                      <td>ann</td>
                      <td>http://www.w3.org/2012/xquery</td>
+                  </tr>
+                  <tr>
+                     <td>audiometa</td>
+                     <td>expkg-zone58:audio.metadata</td>
                   </tr>
                   <tr>
                      <td>FieldKey</td>
@@ -549,10 +505,6 @@ td {
                      <td>java:org.jaudiotagger.tag.Tag</td>
                   </tr>
                   <tr>
-                     <td>tags</td>
-                     <td>expkg-zone58.metadata.audio</td>
-                  </tr>
-                  <tr>
                      <td>TagTextField</td>
                      <td>java:org.jaudiotagger.tag.TagTextField</td>
                   </tr>
@@ -569,7 +521,7 @@ td {
           <i></i>
                							|
                							generated at
-               							2017-03-17T10:46:51.397Z
+               							2017-03-26T22:46:40.299+01:00
             </p>
          </div>
       </div>
