@@ -1,70 +1,36 @@
 <projects>
+	<!-- https://github.com/expkg-zone58/{$name} -->
 	<project name="ex-xparse">
-		<description>Parse expressions in XPath or XQuery into XML trees using
-			REx generated parsers
-		</description>
-		<namespace uri="http://expath.org/ns/xparse" />
-		<repo url=""/> <!-- https://github.com/expkg-zone58/{$name} -->
 		<local path="C:\Users\andy\workspace\ex-xparse\" />
 		<doc src="dist\doc\xparse.xqm.xml" />
 	</project>
 
 	<project name="mp3tag-extract">
-		<description>Extract metadata from mp3 format files using the
-			jaudiotagger library.
-		</description>
-		<namespace uri="expkg-zone58.audio.metadata" />
-		<repo url=""/>
 		<local path="C:\Users\andy\git\mp3tag-extract\" />
 		<doc src="dist\doc\audiotagger.xqm.xml" />
 	</project>
 
 	<project name="ex-thumbnailator">
-		<description>An XQuery interface to the thumbnail generator library
-			[thumbnailator]
-		</description>
-		<namespace uri="expkg-zone58.image.thumbnailator" />
-		<repo url=""/>
 		<local path="C:\Users\andy\git\ex-thumbnailator\" />
 		<doc src="dist\doc\thumbnailator.xqm.xml" />
 	</project>
 
 	<project name="ex-schematron">
-		<description>An XQuery packaging of ISO Schematron for BaseX
-		</description>
-		<namespace uri="expkg-zone58.validation.schematron" />
-		<repo url=""/>
 		<local path="C:\Users\andy\git\ex-schematron\" />
 		<doc src="dist\doc\schematron.xqm.xml" />
 	</project>
 
 	<project name="metadata-extract">
-		<description>An XQuery package to extract image metadata as XML using
-			the
-			Drew Noakes library
-		</description>
-		<namespace uri="expkg-zone58.image.metadata" />
-		<repo url=""/>
 		<local path="C:\Users\andy\git\metadata-extract\" />
 		<doc src="dist\doc\metadata-extractor.xqm.xml" />
 	</project>
 
 	<project name="ex-graphviz">
-		<description>XQuery interface for Graphviz with EXPath packaging.
-		</description>
-		<namespace uri="http://expkg-zone58.github.io/ex-graphviz" />
-		<repo url=""/>
 		<local path="C:\Users\andy\git\ex-graphviz\" />
 		<doc src="dist/doc/graphviz.xqm.xml" />
 	</project>
 
 	<project name="ex-dotml">
-		<description>The dotML library provides conversion from dotML format
-			to
-			graphviz dot
-		</description>
-		<namespace uri="http://www.martin-loetzsch.de/DOTML" />
-		<repo url=""/>
 		<local path="C:\Users\andy\git\ex-dotml\" />
 		<doc src="dist\doc\dotml.xqm.xml" />
 	</project>

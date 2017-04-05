@@ -33,10 +33,11 @@ declare %updating function local:gen-index-doc()
 
 declare %updating function local:gen-index-xq()
 {
+    let $projects:=doc($projects-url)/projects/project
     let $params:=map{
                        "base":"./",
                        "title":"About expkg-zone58",
-                       "projects":doc($projects-url)/projects/project
+                       "projects":fn:sort($projects,(),function($x){$x/@name/lower-case(.)})
                      }
     let $result:=txq:render(fn:resolve-uri("../templates/projects.xq")
                            ,$params
