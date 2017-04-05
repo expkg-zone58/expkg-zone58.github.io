@@ -35,6 +35,7 @@
 				</style>
 
 				<link rel="stylesheet" type="text/css" href="{$css}" />
+				
 				<link rel="stylesheet" type="text/css" href="../resources/prettify.css" />
 
 				<script src="../resources/prettify.js" type="text/javascript">&#160;</script>
@@ -179,7 +180,7 @@
 		</div>
 	</xsl:template>
 
-
+    <!-- o/p details for function $fun has all defined arities -->
 	<xsl:template name="function">
 		<xsl:param name="fun" as="element(doc:function)*" />
 		<xsl:variable name="id" select="$fun[1]/doc:name" />
@@ -356,7 +357,7 @@
 	<xsl:template name="toc">
 		<nav id="toc">
 			<div>
-				<a href="..">&#8624;</a>
+				<a href="../index.html#">&#8624;</a>
 				<xsl:value-of select="$docuri" />
 			</div>
 			<h2>

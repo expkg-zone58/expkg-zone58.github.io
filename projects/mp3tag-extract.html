@@ -316,7 +316,7 @@ td {
                </p>
                <p>
                   			Version:
-                  			0.7.1
+                  			0.8.2
                </p>
                <p>licence
                   			:
@@ -326,7 +326,7 @@ td {
          </dl>
          <nav id="toc">
             <div>
-          <a href="..">↰</a>expkg-zone58:audio.metadata
+          <a href="../index.html#">↰</a>expkg-zone58:audio.metadata
             </div>
             <h2>
           <a id="contents"></a>
@@ -360,11 +360,11 @@ td {
                 </a>
                 <ol class="toc">
                            <li>
-                    <a href="#audiometa:extract">
+                    <a href="#audiometa:artwork">
                       <span class="secno">
                                     												3.
                                     												1</span>
-                      <span class="content">audiometa:extract</span>
+                      <span class="content">audiometa:artwork</span>
                     </a>
                   </li>
                            <li>
@@ -373,6 +373,14 @@ td {
                                     												3.
                                     												2</span>
                       <span class="content">audiometa:read</span>
+                    </a>
+                  </li>
+                           <li>
+                    <a href="#audiometa:tags">
+                      <span class="secno">
+                                    												3.
+                                    												3</span>
+                      <span class="content">audiometa:tags</span>
                     </a>
                   </li>
                         </ol>
@@ -396,19 +404,27 @@ td {
             <h3>
           <a href="#functions">Functions</a>
         </h3>
-            <div id="audiometa:extract">
+            <div id="audiometa:artwork">
                <h4>
-            <a href="#audiometa:extract">audiometa:extract</a>
+            <a href="#audiometa:artwork">audiometa:artwork</a>
           </h4>
                <dt class="label">Summary</dt>
-               <dd>Get tag details from audio file as a sequence.</dd>
+               <dd>Get artwork.</dd>
                <dt class="label">Signature</dt>
                <dd>
                   <div class="proto">
-              <code class="function">audiometa:extract</code>( <code class="arg">file</code>
+              <code class="function">audiometa:artwork</code>( <code class="arg">file</code>
+              <code class="as">&nbsp;as&nbsp;</code>
+              <code class="type">xs:string</code>, <code class="arg">index</code>
+              <code class="as">&nbsp;as&nbsp;</code>
+              <code class="type">xs:integer</code> )<code class="as">&nbsp;as&nbsp;</code>
+              <code class="return-type">map(*)</code>
+            </div>
+                  <div class="proto">
+              <code class="function">audiometa:artwork</code>( <code class="arg">file</code>
               <code class="as">&nbsp;as&nbsp;</code>
               <code class="type">xs:string</code> )<code class="as">&nbsp;as&nbsp;</code>
-              <code class="return-type">element()*</code>
+              <code class="return-type">map(*)</code>
             </div>
                </dd>
                <dt class="label">Parameters</dt>
@@ -416,18 +432,18 @@ td {
                   <ul>
                      <li>file
                         			as
-                        			xs:string filepath of audio file
+                        			xs:string filepath of the audio file to process.
+                     </li>
+                     <li>index
+                        			as
+                        			xs:integer of artwork to return
                      </li>
                   </ul>
                </dd>
                <dt class="label">Return</dt>
                <dd>
                   <ul>
-                     <li>element()*: 
-                        
-                        <code xmlns="" xmlns:xqdoc="http://www.xqdoc.org/1.0">&lt;tag dir=".." name=".."&gt;value&lt;tag....</code>
-                        
-                     </li>
+                     <li>map(*): map containing binaryData as xs:base64Binary, "mimeType" as xs:string</li>
                   </ul>
                </dd>
             </div>
@@ -461,6 +477,43 @@ td {
                      <li>element(metadata): 
                         
                         <code xmlns="" xmlns:xqdoc="http://www.xqdoc.org/1.0">&lt;metadata src=".."&gt;&lt;tag&gt;..</code>
+                        
+                     </li>
+                  </ul>
+               </dd>
+            </div>
+            <div id="audiometa:tags">
+               <h4>
+            <a href="#audiometa:tags">audiometa:tags</a>
+          </h4>
+               <dt class="label">Summary</dt>
+               <dd>Get tag details from audio file as a sequence of 
+                  <code xmlns="" xmlns:xqdoc="http://www.xqdoc.org/1.0">tag</code> elements.
+               </dd>
+               <dt class="label">Signature</dt>
+               <dd>
+                  <div class="proto">
+              <code class="function">audiometa:tags</code>( <code class="arg">file</code>
+              <code class="as">&nbsp;as&nbsp;</code>
+              <code class="type">xs:string</code> )<code class="as">&nbsp;as&nbsp;</code>
+              <code class="return-type">element(tag)*</code>
+            </div>
+               </dd>
+               <dt class="label">Parameters</dt>
+               <dd>
+                  <ul>
+                     <li>file
+                        			as
+                        			xs:string filepath of the audio file to process.
+                     </li>
+                  </ul>
+               </dd>
+               <dt class="label">Return</dt>
+               <dd>
+                  <ul>
+                     <li>element(tag)*: 
+                        
+                        <code xmlns="" xmlns:xqdoc="http://www.xqdoc.org/1.0">&lt;tag dir=".." name=".."&gt;value&lt;tag....</code>
                         
                      </li>
                   </ul>
@@ -501,6 +554,10 @@ td {
                      <td>java:org.jaudiotagger.audio.mp3.MP3File</td>
                   </tr>
                   <tr>
+                     <td>StandardArtwork</td>
+                     <td>org.jaudiotagger.tag.images.StandardArtwork</td>
+                  </tr>
+                  <tr>
                      <td>Tag</td>
                      <td>java:org.jaudiotagger.tag.Tag</td>
                   </tr>
@@ -521,7 +578,7 @@ td {
           <i></i>
                							|
                							generated at
-               							2017-03-26T22:46:40.299+01:00
+               							2017-04-05T17:32:53.136+01:00
             </p>
          </div>
       </div>
