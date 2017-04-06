@@ -4,6 +4,7 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fn="http://www.w3.org/2005/02/xpath-functions"
 	exclude-result-prefixes="xs doc fn" version="2.0">
 	<!-- Standalone xqdoc:xqdoc transform -->
+	<xsl:param name="project" as="xs:string" />
 	<xsl:param name="source" as="xs:string" />
 	<xsl:param name="show-private" as="xs:boolean" select="false()" />
 
@@ -26,14 +27,8 @@
 					<xsl:value-of select="$docuri" />
 					- xqDoc
 				</title>
-				<style type="text/css">
-					<xsl:value-of select="unparsed-text('../resources/page.css','UTF-8')" />
-				</style>
-
-				<style type="text/css">
-					<xsl:value-of select="unparsed-text('../resources/query.css','UTF-8')" />
-				</style>
-
+				<link rel="stylesheet" type="text/css" href="../resources/page.css" />
+                <link rel="stylesheet" type="text/css" href="../resources/query.css" />
 				<link rel="stylesheet" type="text/css" href="{$css}" />
 				
 				<link rel="stylesheet" type="text/css" href="../resources/prettify.css" />
@@ -357,8 +352,8 @@
 	<xsl:template name="toc">
 		<nav id="toc">
 			<div>
-				<a href="../index.html#">&#8624;</a>
-				<xsl:value-of select="$docuri" />
+				<a href="../#{$project}">&#8624;</a>
+				<span class="namespace"><xsl:value-of select="$docuri" /></span>
 			</div>
 			<h2>
 				<a id="contents"></a>

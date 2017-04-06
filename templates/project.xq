@@ -9,27 +9,30 @@
  :       <doc src="dist\doc\xparse.xqm.xml" />
 :)
 declare namespace pkg="http://expath.org/ns/pkg";
+declare namespace cxan="http://cxan.org/ns/package";
+
 declare  variable  $project external ;
 
 let $name:=$project/@name/string()
-let $cxan:=doc($project/local/@path || "src/main/expath-pkg.xml")/pkg:package
+let $pkg:=doc($project/local/@path || "src/main/expath-pkg.xml")/pkg:package
+let $has-cxan:=doc-available($project/local/@path || "src/main/cxan.xml")
 return 
 <section id="{$name}">
     <h3>
     <a href="#{$name}">               
     {$name}
      </a>
-     <span class="namespace" title="Namespace">{$cxan/pkg:xquery/pkg:namespace/text()}</span>
+     <span class="namespace" title="Namespace">{$pkg/pkg:xquery/pkg:namespace/text()}</span>
     </h3>
     <dl>
     <dt class="label">Summary</dt>
-    <dd>{$cxan/pkg:title/(*|text())}</dd>
+    <dd>{$pkg/pkg:title/(*|text())}</dd>
 
     <dt class="label">Documentation</dt>
-    <dd><a href="projects/{$name}.html">xqDoc</a></dd> 
+    <dd><a href="projects/{$name}.html">xqDoc</a>, CXAN: {$has-cxan}</dd> 
     
     <dt class="label">Repository</dt>
-    <dd><a href="https://github.com/expkg-zone58/{$name}">https://github.com/expkg-zone58/{$name}</a></dd> 
+    <dd><a href="https://github.com/expkg-zone58/{$name}" target="dlink">https://github.com/expkg-zone58/{$name}</a></dd> 
   
     </dl>
    </section>
