@@ -15,7 +15,12 @@ declare  variable  $project external ;
 
 let $name:=$project/@name/string()
 let $pkg:=doc($project/local/@path || "src/main/expath-pkg.xml")/pkg:package
-let $has-cxan:=doc-available($project/local/@path || "src/main/cxan.xml")
+let $cxan-path:=$project/local/@path || "src/main/cxan.xml" 
+let $cxan:=if(doc-available($cxan-path)) then
+                doc($cxan-path)/cxan:package
+           else 
+                ()
+let $tags:=$cxan/cxan:tag/string()
 return 
 <section id="{$name}">
     <h3>
@@ -29,7 +34,7 @@ return
     <dd>{$pkg/pkg:title/(*|text())}</dd>
 
     <dt class="label">Documentation</dt>
-    <dd><a href="projects/{$name}.html">xqDoc</a>, CXAN: {$has-cxan}</dd> 
+    <dd><a href="projects/{$name}.html">xqDoc</a>, Tags: {$tags}</dd> 
     
     <dt class="label">Repository</dt>
     <dd><a href="https://github.com/expkg-zone58/{$name}" target="dlink">https://github.com/expkg-zone58/{$name}</a></dd> 

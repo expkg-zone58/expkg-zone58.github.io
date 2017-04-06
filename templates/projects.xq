@@ -43,10 +43,7 @@ Often these are wrappers to third party open-source Java libraries.
                                     let $id:=$project/@name/string() 
                                     return <li>
                                         <a href="#{$id}">
-                                            <span class="secno">
-                                                2.
-                                                {$pos}
-                                            </span>
+                                            <span class="secno">2.{$pos}</span>
                                             <span class="content">
                                                 {$id}
                                             </span>

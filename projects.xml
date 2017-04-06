@@ -15,11 +15,6 @@
 		<doc src="dist\doc\thumbnailator.xqm.xml" />
 	</project>
 
-	<project name="ex-schematron">
-		<local path="C:\Users\andy\git\ex-schematron\" />
-		<doc src="dist\doc\schematron.xqm.xml" />
-	</project>
-
 	<project name="metadata-extract">
 		<local path="C:\Users\andy\git\metadata-extract\" />
 		<doc src="dist\doc\metadata-extractor.xqm.xml" />
