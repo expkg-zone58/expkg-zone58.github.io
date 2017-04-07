@@ -28,6 +28,7 @@ return
     {$name}
      </a>
      <span class="namespace" title="Namespace">{$pkg/pkg:xquery/pkg:namespace/text()}</span>
+     <div style="float:right">version: {$pkg/@version/string()}</div>
     </h3>
     <dl>
     <dt class="label">Summary</dt>
