@@ -4,7 +4,10 @@
 		<local path="C:\Users\andy\workspace\ex-xparse\" />
 		<doc src="dist\doc\xparse.xqm.xml" />
 	</project>
-
+	<project name="ex-markdown">
+		<local path="C:\Users\andy\git\ex-markdown\" />
+		<doc src="dist\doc\markdown.xqm.xml" />
+	</project>
 	<project name="mp3tag-extract">
 		<local path="C:\Users\andy\git\mp3tag-extract\" />
 		<doc src="dist\doc\audiotagger.xqm.xml" />

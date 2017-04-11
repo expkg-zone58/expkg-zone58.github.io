@@ -3,7 +3,7 @@
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <meta http-equiv="Generator" content="xquerydoc - https://github.com/xquery/xquerydoc">
-      <title>http://www.martin-loetzsch.de/DOTML
+      <title>expkg-zone58:text.markdown
          					- xqDoc
          				
       </title>
@@ -17,7 +17,7 @@
    <body class="home" id="top">
       <div id="main">
          <h1>
-        <span class="namespace">http://www.martin-loetzsch.de/DOTML</span>
+        <span class="namespace">expkg-zone58:text.markdown</span>
             			&nbsp;
             			library
             			module
@@ -25,28 +25,27 @@
          </h1>
          <dl>
             <dt class="label">Summary</dt>
-            <dd>The dotML library provides conversion from 
-               <code xmlns="" xmlns:xqdoc="http://www.xqdoc.org/1.0">dotML</code> format to Graphviz dot.
-               'DotML' is a XML based syntax for the input language 'Dot' used by Graphviz.
-               This application includes an XSLT transform to convert 'DotML' to 'dot' developed
-               by Martin Loetzsch. 
-               The 
-               <code xmlns="" xmlns:xqdoc="http://www.xqdoc.org/1.0">dotml:to-dot()</code> function invokes this transform.
-            </dd>
+            <dd>convert markdown to html text using flexmark-java https://github.com/vsch/flexmark-java</dd>
             <dt>Tags</dt>
             <dd>
-               		See also:
-               		http://www.martin-loetzsch.de/DOTML/
+               <p>
+                  			Author:
+                  			Andy Bunce
+               </p>
                <p>
                   			Version:
-                  			0.2.1
+                  			0.1.0
+               </p>
+               <p>licence
+                  			:
+                  			Apache 2
                </p>
             </dd>
          </dl>
          <nav id="toc">
             <div>
-          <a href="../#ex-dotml">↰</a>
-          <span class="namespace">http://www.martin-loetzsch.de/DOTML</span>
+          <a href="../#ex-markdown">↰</a>
+          <span class="namespace">expkg-zone58:text.markdown</span>
         </div>
             <h2>
           <a id="contents"></a>
@@ -80,11 +79,11 @@
                 </a>
                 <ol class="toc">
                            <li>
-                    <a href="#dotml:to-dot">
+                    <a href="#md:to-html">
                       <span class="secno">
                                     												3.
                                     												1</span>
-                      <span class="content">dotml:to-dot</span>
+                      <span class="content">md:to-html</span>
                     </a>
                   </li>
                         </ol>
@@ -103,34 +102,32 @@
             <h3>
           <a href="#functions">Functions</a>
         </h3>
-            <div id="dotml:to-dot">
+            <div id="md:to-html">
                <h4>
-            <a href="#dotml:to-dot">dotml:to-dot</a>
+            <a href="#md:to-html">md:to-html</a>
           </h4>
-               <dt class="label">Summary</dt>
-               <dd>transform DotML to dot</dd>
                <dt class="label">Signature</dt>
                <dd>
                   <div class="proto">
-              <code class="function">dotml:to-dot</code>( <code class="arg">dotml</code>
+              <code class="function">md:to-html</code>( <code class="arg">md</code>
               <code class="as">&nbsp;as&nbsp;</code>
-              <code class="type">element(dotml:graph)</code> )<code class="as">&nbsp;as&nbsp;</code>
+              <code class="type">xs:string</code> )<code class="as">&nbsp;as&nbsp;</code>
               <code class="return-type">xs:string</code>
             </div>
                </dd>
                <dt class="label">Parameters</dt>
                <dd>
                   <ul>
-                     <li>dotml
+                     <li>md
                         			as
-                        			element(dotml:graph) The dotML node to convert.
+                        			xs:string
                      </li>
                   </ul>
                </dd>
                <dt class="label">Return</dt>
                <dd>
                   <ul>
-                     <li>xs:string: graphviz dot string</li>
+                     <li>xs:string</li>
                   </ul>
                </dd>
             </div>
@@ -149,12 +146,36 @@
                </thead>
                <tbody>
                   <tr>
-                     <td>dotml</td>
-                     <td>http://www.martin-loetzsch.de/DOTML</td>
+                     <td>a</td>
+                     <td>java:com.vladsch.flexmark.ext.autolink.AutolinkExtension</td>
                   </tr>
                   <tr>
-                     <td>xslt</td>
-                     <td>http://basex.org/modules/xslt</td>
+                     <td>h</td>
+                     <td>java:com.vladsch.flexmark.html.HtmlRenderer</td>
+                  </tr>
+                  <tr>
+                     <td>hb</td>
+                     <td>java:com.vladsch.flexmark.html.HtmlRenderer$Builder</td>
+                  </tr>
+                  <tr>
+                     <td>m</td>
+                     <td>java:com.vladsch.flexmark.util.options.MutableDataSet</td>
+                  </tr>
+                  <tr>
+                     <td>md</td>
+                     <td>expkg-zone58:text.markdown</td>
+                  </tr>
+                  <tr>
+                     <td>n</td>
+                     <td>java:com.vladsch.flexmark.ast.Node</td>
+                  </tr>
+                  <tr>
+                     <td>p</td>
+                     <td>java:com.vladsch.flexmark.parser.Parser</td>
+                  </tr>
+                  <tr>
+                     <td>pb</td>
+                     <td>java:com.vladsch.flexmark.parser.Parser$Builder</td>
                   </tr>
                </tbody>
             </table>
@@ -169,7 +190,7 @@
           <i></i>
                							|
                							generated at
-               							2017-04-11T16:13:58.713+01:00
+               							2017-04-11T16:13:58.17+01:00
             </p>
          </div>
       </div>
