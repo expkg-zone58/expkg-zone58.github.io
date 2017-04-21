@@ -3,14 +3,17 @@
 	<project name="ex-xparse">
 		<local path="C:\Users\andy\workspace\ex-xparse\" />
 		<doc src="dist\doc\xparse.xqm.xml" />
+		<note></note>
 	</project>
 	<project name="ex-markdown">
 		<local path="C:\Users\andy\git\ex-markdown\" />
 		<doc src="dist\doc\markdown.xqm.xml" />
+		<note>included third party jars</note>
 	</project>
 	<project name="mp3tag-extract">
 		<local path="C:\Users\andy\git\mp3tag-extract\" />
 		<doc src="dist\doc\audiotagger.xqm.xml" />
+		<note>included third party jars</note>
 	</project>
 
 	<project name="ex-thumbnailator">
@@ -26,11 +29,13 @@
 	<project name="ex-graphviz">
 		<local path="C:\Users\andy\git\ex-graphviz\" />
 		<doc src="dist/doc/graphviz.xqm.xml" />
+		<note>runs external command</note>
 	</project>
 
 	<project name="ex-dotml">
 		<local path="C:\Users\andy\git\ex-dotml\" />
 		<doc src="dist\doc\dotml.xqm.xml" />
+		<note>xslt</note>
 	</project>
 
 </projects>

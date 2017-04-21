@@ -25,7 +25,7 @@
          </h1>
          <dl>
             <dt class="label">Summary</dt>
-            <dd>Generate thumbnails using http://code.google.com/p/thumbnailator/</dd>
+            <dd>Generate image thumbnails using the thumbnailator library.</dd>
             <dt>Tags</dt>
             <dd>
                		See also:
@@ -36,7 +36,7 @@
                </p>
                <p>
                   			Version:
-                  			3.0.0
+                  			4.4.1
                </p>
             </dd>
          </dl>
@@ -77,11 +77,11 @@
                 </a>
                 <ol class="toc">
                            <li>
-                    <a href="#thumbnails:create-thumbnail">
+                    <a href="#thumbnails:scale">
                       <span class="secno">
                                     												3.
                                     												1</span>
-                      <span class="content">thumbnails:create-thumbnail</span>
+                      <span class="content">thumbnails:scale</span>
                     </a>
                   </li>
                            <li>
@@ -93,11 +93,19 @@
                     </a>
                   </li>
                            <li>
-                    <a href="#thumbnails:sourceRegion">
+                    <a href="#thumbnails:task">
                       <span class="secno">
                                     												3.
                                     												3</span>
-                      <span class="content">thumbnails:sourceRegion</span>
+                      <span class="content">thumbnails:task</span>
+                    </a>
+                  </li>
+                           <li>
+                    <a href="#thumbnails:validation-report">
+                      <span class="secno">
+                                    												3.
+                                    												4</span>
+                      <span class="content">thumbnails:validation-report</span>
                     </a>
                   </li>
                         </ol>
@@ -116,52 +124,46 @@
             <h3>
           <a href="#functions">Functions</a>
         </h3>
-            <div id="thumbnails:create-thumbnail">
+            <div id="thumbnails:scale">
                <h4>
-            <a href="#thumbnails:create-thumbnail">thumbnails:create-thumbnail</a>
+            <a href="#thumbnails:scale">thumbnails:scale</a>
           </h4>
                <dt class="label">Summary</dt>
-               <dd>create-thumbnail</dd>
+               <dd>generate scaled version of source image at given factors 0-1</dd>
                <dt class="label">Signature</dt>
                <dd>
                   <div class="proto">
-              <code class="function">thumbnails:create-thumbnail</code>( <code class="arg">src</code>
+              <code class="function">thumbnails:scale</code>( <code class="arg">source</code>
               <code class="as">&nbsp;as&nbsp;</code>
-              <code class="type">xs:string</code>, <code class="arg">dest</code>
+              <code class="type">xs:base64Binary</code>, <code class="arg">xscale</code>
               <code class="as">&nbsp;as&nbsp;</code>
-              <code class="type">xs:string</code>, <code class="arg">width</code>
+              <code class="type">xs:float</code>, <code class="arg">yscale</code>
               <code class="as">&nbsp;as&nbsp;</code>
-              <code class="type">xs:integer</code>, <code class="arg">height</code>
-              <code class="as">&nbsp;as&nbsp;</code>
-              <code class="type">xs:integer</code> )<code class="as">&nbsp;as&nbsp;</code>
-              <code class="return-type">item()*</code>
+              <code class="type">xs:float</code> )<code class="as">&nbsp;as&nbsp;</code>
+              <code class="return-type">xs:base64Binary</code>
             </div>
                </dd>
                <dt class="label">Parameters</dt>
                <dd>
                   <ul>
-                     <li>src
+                     <li>source
                         			as
-                        			xs:string file path of source image
+                        			xs:base64Binary base64Binary (streamed?) e.g from `fetch:binary`
                      </li>
-                     <li>dest
+                     <li>xscale
                         			as
-                        			xs:string file path for thumbnail image
+                        			xs:float
                      </li>
-                     <li>width
+                     <li>yscale
                         			as
-                        			xs:integer width in pixels for thumbnail
-                     </li>
-                     <li>height
-                        			as
-                        			xs:integer height in pixels for thumbnail
+                        			xs:float
                      </li>
                   </ul>
                </dd>
                <dt class="label">Return</dt>
                <dd>
                   <ul>
-                     <li>item()*</li>
+                     <li>xs:base64Binary: the thumbnail</li>
                   </ul>
                </dd>
             </div>
@@ -170,75 +172,26 @@
             <a href="#thumbnails:size">thumbnails:size</a>
           </h4>
                <dt class="label">Summary</dt>
-               <dd>size experimental</dd>
+               <dd>generate scaled version of source image with maximum dimension of size</dd>
                <dt class="label">Signature</dt>
                <dd>
                   <div class="proto">
-              <code class="function">thumbnails:size</code>( <code class="arg">builder</code>
+              <code class="function">thumbnails:size</code>( <code class="arg">source</code>
               <code class="as">&nbsp;as&nbsp;</code>
-              <code class="type">item()*</code>, <code class="arg">width</code>
-              <code class="as">&nbsp;as&nbsp;</code>
-              <code class="type">xs:int</code>, <code class="arg">height</code>
-              <code class="as">&nbsp;as&nbsp;</code>
-              <code class="type">xs:int</code> )<code class="as">&nbsp;as&nbsp;</code>
-              <code class="return-type">item()*</code>
-            </div>
-               </dd>
-               <dt class="label">Parameters</dt>
-               <dd>
-                  <ul>
-                     <li>builder
-                        			as
-                        			item()*
-                     </li>
-                     <li>width
-                        			as
-                        			xs:int
-                     </li>
-                     <li>height
-                        			as
-                        			xs:int
-                     </li>
-                  </ul>
-               </dd>
-               <dt class="label">Return</dt>
-               <dd>
-                  <ul>
-                     <li>item()*</li>
-                  </ul>
-               </dd>
-            </div>
-            <div id="thumbnails:sourceRegion">
-               <h4>
-            <a href="#thumbnails:sourceRegion">thumbnails:sourceRegion</a>
-          </h4>
-               <dt class="label">Summary</dt>
-               <dd>sourceRegion experimental</dd>
-               <dt class="label">Signature</dt>
-               <dd>
-                  <div class="proto">
-              <code class="function">thumbnails:sourceRegion</code>( <code class="arg">x</code>
-              <code class="as">&nbsp;as&nbsp;</code>
-              <code class="type">xs:integer</code>, <code class="arg">y</code>
-              <code class="as">&nbsp;as&nbsp;</code>
-              <code class="type">xs:integer</code>, <code class="arg">width</code>
+              <code class="type">xs:base64Binary</code>, <code class="arg">width</code>
               <code class="as">&nbsp;as&nbsp;</code>
               <code class="type">xs:integer</code>, <code class="arg">height</code>
               <code class="as">&nbsp;as&nbsp;</code>
               <code class="type">xs:integer</code> )<code class="as">&nbsp;as&nbsp;</code>
-              <code class="return-type">item()*</code>
+              <code class="return-type">xs:base64Binary</code>
             </div>
                </dd>
                <dt class="label">Parameters</dt>
                <dd>
                   <ul>
-                     <li>x
+                     <li>source
                         			as
-                        			xs:integer
-                     </li>
-                     <li>y
-                        			as
-                        			xs:integer
+                        			xs:base64Binary base64Binary (streamed?) e.g from `fetch:binary`
                      </li>
                      <li>width
                         			as
@@ -253,7 +206,75 @@
                <dt class="label">Return</dt>
                <dd>
                   <ul>
-                     <li>item()*</li>
+                     <li>xs:base64Binary: base64Binary for thumbnail</li>
+                  </ul>
+               </dd>
+            </div>
+            <div id="thumbnails:task">
+               <h4>
+            <a href="#thumbnails:task">thumbnails:task</a>
+          </h4>
+               <dt class="label">Summary</dt>
+               <dd>generate thumbnail using parameters specified via XML</dd>
+               <dt class="label">Signature</dt>
+               <dd>
+                  <div class="proto">
+              <code class="function">thumbnails:task</code>( <code class="arg">source</code>
+              <code class="as">&nbsp;as&nbsp;</code>
+              <code class="type">xs:base64Binary</code>, <code class="arg">task</code>
+              <code class="as">&nbsp;as&nbsp;</code>
+              <code class="type">element(thumbnail)</code> )<code class="as">&nbsp;as&nbsp;</code>
+              <code class="return-type">xs:base64Binary</code>
+            </div>
+               </dd>
+               <dt class="label">Parameters</dt>
+               <dd>
+                  <ul>
+                     <li>source
+                        			as
+                        			xs:base64Binary base64Binary (streamed?) e.g from `fetch:binary`
+                     </li>
+                     <li>task
+                        			as
+                        			element(thumbnail) XML parameters &lt;task&gt;&lt;size width="100" ..
+                     </li>
+                  </ul>
+               </dd>
+               <dt class="label">Return</dt>
+               <dd>
+                  <ul>
+                     <li>xs:base64Binary: the thumbnail</li>
+                  </ul>
+               </dd>
+            </div>
+            <div id="thumbnails:validation-report">
+               <h4>
+            <a href="#thumbnails:validation-report">thumbnails:validation-report</a>
+          </h4>
+               <dt class="label">Summary</dt>
+               <dd>validate task XML against schema</dd>
+               <dt class="label">Signature</dt>
+               <dd>
+                  <div class="proto">
+              <code class="function">thumbnails:validation-report</code>( <code class="arg">src</code>
+              <code class="as">&nbsp;as&nbsp;</code>
+              <code class="type">item()*</code> )<code class="as">&nbsp;as&nbsp;</code>
+              <code class="return-type">element(report)</code>
+            </div>
+               </dd>
+               <dt class="label">Parameters</dt>
+               <dd>
+                  <ul>
+                     <li>src
+                        			as
+                        			item()* XML parameters &lt;task&gt;&lt;size width="100" ..
+                     </li>
+                  </ul>
+               </dd>
+               <dt class="label">Return</dt>
+               <dd>
+                  <ul>
+                     <li>element(report): validation report</li>
                   </ul>
                </dd>
             </div>
@@ -272,22 +293,6 @@
                </thead>
                <tbody>
                   <tr>
-                     <td>BufferedImageBuilder</td>
-                     <td>java:net.coobird.thumbnailator.builders.BufferedImageBuilder</td>
-                  </tr>
-                  <tr>
-                     <td>Builder</td>
-                     <td>java:net.coobird.thumbnailator.Thumbnails$Builder</td>
-                  </tr>
-                  <tr>
-                     <td>File</td>
-                     <td>java:java.io.File</td>
-                  </tr>
-                  <tr>
-                     <td>Thumbnailator</td>
-                     <td>java:net.coobird.thumbnailator.Thumbnailator</td>
-                  </tr>
-                  <tr>
                      <td>thumbnails</td>
                      <td>expkg-zone58:image.thumbnailator</td>
                   </tr>
@@ -304,7 +309,7 @@
           <i></i>
                							|
                							generated at
-               							2017-04-11T16:13:58.399+01:00
+               							2017-04-21T15:39:08.857+01:00
             </p>
          </div>
       </div>
