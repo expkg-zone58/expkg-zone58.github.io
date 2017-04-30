@@ -36,7 +36,7 @@
                </p>
                <p>
                   			Version:
-                  			4.4.1
+                  			0.5
                </p>
             </dd>
          </dl>
@@ -101,10 +101,18 @@
                     </a>
                   </li>
                            <li>
-                    <a href="#thumbnails:validation-report">
+                    <a href="#thumbnails:validate">
                       <span class="secno">
                                     												3.
                                     												4</span>
+                      <span class="content">thumbnails:validate</span>
+                    </a>
+                  </li>
+                           <li>
+                    <a href="#thumbnails:validation-report">
+                      <span class="secno">
+                                    												3.
+                                    												5</span>
                       <span class="content">thumbnails:validation-report</span>
                     </a>
                   </li>
@@ -135,11 +143,19 @@
                   <div class="proto">
               <code class="function">thumbnails:scale</code>( <code class="arg">source</code>
               <code class="as">&nbsp;as&nbsp;</code>
+              <code class="type">xs:base64Binary</code>, <code class="arg">scale</code>
+              <code class="as">&nbsp;as&nbsp;</code>
+              <code class="type">xs:double</code> )<code class="as">&nbsp;as&nbsp;</code>
+              <code class="return-type">xs:base64Binary</code>
+            </div>
+                  <div class="proto">
+              <code class="function">thumbnails:scale</code>( <code class="arg">source</code>
+              <code class="as">&nbsp;as&nbsp;</code>
               <code class="type">xs:base64Binary</code>, <code class="arg">xscale</code>
               <code class="as">&nbsp;as&nbsp;</code>
-              <code class="type">xs:float</code>, <code class="arg">yscale</code>
+              <code class="type">xs:double</code>, <code class="arg">yscale</code>
               <code class="as">&nbsp;as&nbsp;</code>
-              <code class="type">xs:float</code> )<code class="as">&nbsp;as&nbsp;</code>
+              <code class="type">xs:double</code> )<code class="as">&nbsp;as&nbsp;</code>
               <code class="return-type">xs:base64Binary</code>
             </div>
                </dd>
@@ -150,13 +166,9 @@
                         			as
                         			xs:base64Binary base64Binary (streamed?) e.g from `fetch:binary`
                      </li>
-                     <li>xscale
+                     <li>scale
                         			as
-                        			xs:float
-                     </li>
-                     <li>yscale
-                        			as
-                        			xs:float
+                        			xs:double
                      </li>
                   </ul>
                </dd>
@@ -178,6 +190,14 @@
                   <div class="proto">
               <code class="function">thumbnails:size</code>( <code class="arg">source</code>
               <code class="as">&nbsp;as&nbsp;</code>
+              <code class="type">xs:base64Binary</code>, <code class="arg">size</code>
+              <code class="as">&nbsp;as&nbsp;</code>
+              <code class="type">xs:integer</code> )<code class="as">&nbsp;as&nbsp;</code>
+              <code class="return-type">xs:base64Binary</code>
+            </div>
+                  <div class="proto">
+              <code class="function">thumbnails:size</code>( <code class="arg">source</code>
+              <code class="as">&nbsp;as&nbsp;</code>
               <code class="type">xs:base64Binary</code>, <code class="arg">width</code>
               <code class="as">&nbsp;as&nbsp;</code>
               <code class="type">xs:integer</code>, <code class="arg">height</code>
@@ -193,11 +213,7 @@
                         			as
                         			xs:base64Binary base64Binary (streamed?) e.g from `fetch:binary`
                      </li>
-                     <li>width
-                        			as
-                        			xs:integer
-                     </li>
-                     <li>height
+                     <li>size
                         			as
                         			xs:integer
                      </li>
@@ -247,12 +263,51 @@
                   </ul>
                </dd>
             </div>
+            <div id="thumbnails:validate">
+               <h4>
+            <a href="#thumbnails:validate">thumbnails:validate</a>
+          </h4>
+               <dt class="label">Summary</dt>
+               <dd>validate task thumbnail XML against schema</dd>
+               <dt class="label">Signature</dt>
+               <dd>
+                  <div class="proto">
+              <code class="function">thumbnails:validate</code>( <code class="arg">src</code>
+              <code class="as">&nbsp;as&nbsp;</code>
+              <code class="type">item()*</code> )<code class="as">&nbsp;as&nbsp;</code>
+              <code class="return-type">empty-sequence()</code>
+            </div>
+               </dd>
+               <dt class="label">Parameters</dt>
+               <dd>
+                  <ul>
+                     <li>src
+                        			as
+                        			item()* XML parameters &lt;thumbnail&gt;&lt;size width="100" ..
+                     </li>
+                  </ul>
+               </dd>
+               <dt class="label">Return</dt>
+               <dd>
+                  <ul>
+                     <li>empty-sequence(): empty-sequence or error</li>
+                  </ul>
+               </dd>
+               <dt class="label">Error</dt>
+               <dd>BXVA0001: the validation fails.</dd>
+               <dt class="label">Error</dt>
+               <dd>BXVA0002: the validation process cannot be started.</dd>
+               <dt class="label">Error</dt>
+               <dd>BXVA0003: no XML Schema validator is available.</dd>
+               <dt class="label">Error</dt>
+               <dd>BXVA0004: no validator is found for the specified version.</dd>
+            </div>
             <div id="thumbnails:validation-report">
                <h4>
             <a href="#thumbnails:validation-report">thumbnails:validation-report</a>
           </h4>
                <dt class="label">Summary</dt>
-               <dd>validate task XML against schema</dd>
+               <dd>validate task thumbnail XML against schema</dd>
                <dt class="label">Signature</dt>
                <dd>
                   <div class="proto">
@@ -267,7 +322,7 @@
                   <ul>
                      <li>src
                         			as
-                        			item()* XML parameters &lt;task&gt;&lt;size width="100" ..
+                        			item()* XML parameters &lt;thumbnail&gt;&lt;size width="100" ..
                      </li>
                   </ul>
                </dd>
@@ -296,6 +351,10 @@
                      <td>thumbnails</td>
                      <td>expkg-zone58:image.thumbnailator</td>
                   </tr>
+                  <tr>
+                     <td>Thumbs</td>
+                     <td>org.expkgzone58.image.Thumbs</td>
+                  </tr>
                </tbody>
             </table>
          </div>
@@ -309,7 +368,7 @@
           <i></i>
                							|
                							generated at
-               							2017-04-21T15:39:08.857+01:00
+               							2017-04-30T11:10:25.156+01:00
             </p>
          </div>
       </div>
